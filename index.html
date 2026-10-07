@@ -1,749 +1,524 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mike Clyne — International Financial Markets Professional, London</title>
-  <meta name="description" content="Independent thinking for complex financial markets. Mike Clyne is a London-based international financial markets professional." />
-  <meta name="theme-color" content="#0B0B0C" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    :root {
-      --obsidian: #0B0B0C;
-      --graphite: #1B1C1E;
-      --ivory: #F3F0E9;
-      --paper: #F7F4ED;
-      --champagne: #B8A27A;
-      --stone: #77746E;
-      --ink: #161513;
-    }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--obsidian);
-      color: var(--ivory);
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3, h4, blockquote {
-      font-family: "Cormorant Garamond", Times, serif;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-    }
-    a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--champagne); }
-    :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
-    .kicker {
-      font-size: .6875rem; letter-spacing: .22em; text-transform: uppercase;
-      font-weight: 500; color: var(--champagne);
-    }
-    .display-serif { font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: .96; }
-    .display-sm { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.05; }
-    .lede { font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.55; color: rgba(243,240,233,.72); }
-    .site-nav {
-      position: fixed; inset: 0 0 auto 0; z-index: 50;
-      transition: background .3s ease, border-color .3s ease;
-      border-bottom: 1px solid transparent;
-    }
-    .site-nav.solid { background: rgba(11,11,12,.95); border-color: rgba(243,240,233,.1); backdrop-filter: blur(12px); }
-    .nav-link { color: rgba(243,240,233,.7) !important; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; padding: .5rem 0 !important; }
-    .nav-link:hover, .nav-link.active { color: var(--ivory) !important; }
-    .btn-ghost {
-      border: 1px solid rgba(184,162,122,.7); color: var(--ivory); border-radius: 0;
-      letter-spacing: .18em; text-transform: uppercase; font-size: .6875rem;
-      padding: .85rem 1.4rem; background: transparent;
-    }
-    .btn-ghost:hover { background: var(--ivory); color: var(--obsidian); }
-    .btn-ink {
-      border: 1px solid rgba(22,21,19,.2); color: var(--ink); border-radius: 0;
-      letter-spacing: .18em; text-transform: uppercase; font-size: .6875rem;
-      padding: .85rem 1.4rem; background: transparent;
-    }
-    .btn-ink:hover { background: var(--ink); color: var(--ivory); }
-    .hero { min-height: 100vh; position: relative; overflow: hidden; }
-    .hero-photo { position: absolute; inset: 0; }
-    .hero-photo img { width: 100%; height: 115%; object-fit: cover; object-position: center 12%; will-change: transform; }
-    .hero-mask { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,12,.92) 0%, rgba(11,11,12,.35) 55%, rgba(11,11,12,.2) 100%); }
-    .hero-copy { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 0 4rem; }
-    .v-label { position: absolute; left: 1.5rem; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: left center; }
-    .stat { border-left: 1px solid rgba(243,240,233,.12); padding-left: 1.5rem; }
-    .page { display: none; }
-    .page.is-on { display: block; }
-    .band-ivory { background: var(--ivory); color: var(--ink); }
-    .band-paper { background: var(--paper); color: var(--ink); }
-    .band-graph { background: var(--graphite); color: var(--ivory); }
-    .band-dark { background: var(--obsidian); color: var(--ivory); }
-    .section { padding: clamp(4.5rem, 9vw, 8.5rem) 0; }
-    .rule { border: 0; height: 1px; background: rgba(184,162,122,.32); }
-    .img-arch { width: 100%; height: 100%; object-fit: cover; }
-    .parallax-band { height: 70vh; position: relative; overflow: hidden; }
-    .parallax-band img { width: 100%; height: 130%; object-fit: cover; will-change: transform; }
-    .parallax-band .overlay { position: absolute; inset: 0; background: rgba(11,11,12,.55); }
-    .parallax-band .copy { position: absolute; inset: auto 0 0 0; padding: 4rem 0; }
-    .placeholder { font-style: italic; color: var(--stone); }
-    .form-control, .form-select, textarea.form-control {
-      background: transparent; border: 0; border-bottom: 1px solid rgba(119,116,110,.35);
-      border-radius: 0; color: inherit; box-shadow: none !important;
-    }
-    .band-ivory .form-control { color: var(--ink); }
-    .form-control:focus { border-color: var(--champagne); background: transparent; color: inherit; }
-    .cookie {
-      position: fixed; inset: auto 0 0 0; z-index: 60;
-      background: rgba(11,11,12,.96); border-top: 1px solid rgba(243,240,233,.12); padding: 1.25rem;
-    }
-    footer { border-top: 1px solid rgba(243,240,233,.1); }
-    .demo { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--champagne); }
-    .navbar-toggler { border: 0; filter: invert(1); }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition: none !important; animation: none !important; }
-    }
-    @media (max-width: 991px) {
-      .v-label { display: none; }
-      .hero-mask { background: linear-gradient(to top, rgba(11,11,12,.92) 20%, rgba(11,11,12,.25) 70%); }
-      .stat { border-left: 0; border-top: 1px solid rgba(243,240,233,.12); padding: 1.25rem 0 0; margin-top: 1rem; }
-    }
-  </style>
-</head>
-<body>
-  <a class="visually-hidden-focusable position-absolute m-3 bg-light text-dark p-2" href="#main">Skip to content</a>
-
-  <nav class="site-nav navbar navbar-expand-lg navbar-dark" id="siteNav">
-    <div class="container">
-      <a class="navbar-brand kicker mb-0" href="#home" data-nav>Mike Clyne</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Open menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navMain">
-        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
-          <li class="nav-item"><a class="nav-link" href="#about" data-nav>About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#expertise" data-nav>Expertise</a></li>
-          <li class="nav-item"><a class="nav-link" href="#approach" data-nav>Approach</a></li>
-          <li class="nav-item"><a class="nav-link" href="#insights" data-nav>Insights</a></li>
-          <li class="nav-item"><a class="nav-link" href="#profile" data-nav>Professional Profile</a></li>
-          <li class="nav-item"><a class="btn btn-ghost ms-lg-3" href="#contact" data-nav>Request a Private Consultation</a></li>
-        </ul>
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="ALPHA AI — Finnish and English fictional story concept with a demo calculator." />
+    <meta name="theme-color" content="#f6f4ee" />
+    <title>ALPHA AI — Markkinatiedustelun konsepti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <style>
+      :root {
+        --bg:#f6f4ee; --surface:#fffefa; --surface-2:#eeeae0; --ink:#20221f;
+        --muted:#61635b; --line:rgba(45,47,41,.18); --gold:#c8ad70; --gold-dark:#806835;
+        --shadow:0 24px 70px rgba(40,36,25,.10);
+      }
+      [data-theme="night"] {
+        --bg:#111315; --surface:#191b1c; --surface-2:#202223; --ink:#e9e6df;
+        --muted:#aaa9a3; --line:rgba(220,204,157,.18); --gold:#d2ba7e; --gold-dark:#e0cf9f;
+        --shadow:0 24px 70px rgba(0,0,0,.28);
+      }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; scroll-padding-top:90px; }
+      body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; transition:background .2s,color .2s; }
+      a { color:inherit; }
+      .container { max-width:1180px; }
+      .top-note { padding:.58rem 1rem; background:#eee8d8; color:#55472b; text-align:center; font-size:.72rem; letter-spacing:.04em; }
+      [data-theme="night"] .top-note { background:#302a1e; color:#e4d5ab; }
+      .site-nav { background:color-mix(in srgb,var(--bg) 93%,transparent); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+      .navbar-brand { color:var(--ink); font-weight:800; letter-spacing:.12em; }
+      .brand-mark { display:inline-grid; place-items:center; width:30px; height:30px; margin-right:.65rem; border:1px solid var(--gold-dark); color:var(--gold-dark); transform:rotate(45deg); }
+      .brand-mark span { transform:rotate(-45deg); }
+      .nav-link { color:var(--muted); font-size:.84rem; }
+      .nav-link:hover { color:var(--gold-dark); }
+      .header-tools { display:flex; align-items:center; gap:.5rem; }
+      .lang-switch { display:flex; gap:2px; border:1px solid var(--line); border-radius:30px; padding:3px; }
+      .lang-switch button,.theme-button { border:0; border-radius:30px; background:transparent; color:var(--ink); padding:.35rem .6rem; font-size:.75rem; }
+      .lang-switch button.active { background:var(--gold); color:#171715; font-weight:700; }
+      .theme-button { border:1px solid var(--line); min-width:36px; min-height:36px; }
+      .btn-gold { background:var(--gold); border-color:var(--gold); color:#171715; font-weight:700; }
+      .btn-gold:hover { background:#dfca91; border-color:#dfca91; color:#171715; }
+      .btn-outline-gold { border:1px solid var(--gold-dark); color:var(--gold-dark); }
+      .btn-outline-gold:hover { background:var(--gold); color:#171715; }
+      .hero { padding:5rem 0; background:radial-gradient(ellipse at 78% 20%,rgba(142,120,70,.12),transparent 44%),linear-gradient(145deg,var(--bg),var(--surface-2)); }
+      .hero-title { max-width:680px; font:500 clamp(2.8rem,6.7vw,5.5rem)/.99 Georgia,serif; letter-spacing:-.06em; }
+      .gold-text { color:var(--gold-dark); }
+      .eyebrow { color:var(--gold-dark); text-transform:uppercase; letter-spacing:.14em; font-size:.7rem; font-weight:700; }
+      .hero-copy,.section-copy { max-width:620px; color:var(--muted); line-height:1.8; }
+      .hero-stats { display:flex; gap:2rem; margin-top:2rem; padding-top:1.3rem; border-top:1px solid var(--line); }
+      .hero-stats strong { display:block; color:var(--gold-dark); font:500 1.6rem Georgia,serif; }
+      .hero-stats span { color:var(--muted); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; }
+      .hero-note { margin-top:1.5rem; color:var(--muted); font-size:.68rem; letter-spacing:.07em; }
+      .registration-card,.surface,.metric-card,.faq-card { background:var(--surface); border:1px solid var(--line); box-shadow:var(--shadow); }
+      .registration-card { padding:clamp(1.3rem,3vw,2rem); }
+      .registration-card h2 { font:500 clamp(1.7rem,3vw,2.2rem) Georgia,serif; letter-spacing:-.04em; }
+      .tiny-note { color:var(--muted); font-size:.77rem; line-height:1.65; }
+      .form-label { color:var(--muted); font-size:.75rem; font-weight:650; }
+      .form-control,.form-select { background:var(--bg); color:var(--ink); border-color:var(--line); }
+      .form-control:focus,.form-select:focus { background:var(--surface); color:var(--ink); border-color:var(--gold-dark); box-shadow:0 0 0 .2rem rgba(200,173,112,.18); }
+      .phone-row { display:grid; grid-template-columns: minmax(112px,.74fr) minmax(0,1.26fr); gap:.65rem; }
+      .hint { color:var(--muted); font-size:.69rem; }
+      .status { color:var(--gold-dark); font-size:.8rem; }
+      .proof-strip { padding:1.3rem 0; background:var(--surface-2); border-block:1px solid var(--line); }
+      .proof-item { display:flex; gap:.65rem; align-items:center; color:var(--muted); font-size:.78rem; }
+      .proof-mark { color:var(--gold-dark); font-size:1.1rem; }
+      .section { padding:5.5rem 0; }
+      .section-title { max-width:800px; margin:1rem 0; font:500 clamp(2.25rem,5vw,4rem)/1.05 Georgia,serif; letter-spacing:-.05em; }
+      .steps { display:grid; grid-template-columns:repeat(5,1fr); gap:1.25rem; margin-top:3rem; border-top:1px solid var(--line); }
+      .step { padding-top:1.3rem; }
+      .step-number { color:var(--gold-dark); font-size:.75rem; }
+      .step h3,.info-card h3 { margin:1rem 0 .5rem; font:500 1.2rem Georgia,serif; }
+      .step p,.info-card p { color:var(--muted); font-size:.82rem; line-height:1.7; }
+      .system-section { background:var(--surface-2); }
+      .surface { padding:clamp(1.4rem,3vw,2.3rem); box-shadow:none; }
+      .flow { display:grid; gap:.6rem; }
+      .flow-item { display:flex; gap:1rem; align-items:center; min-height:42px; border-bottom:1px solid var(--line); font-size:.86rem; }
+      .flow-item span { color:var(--gold-dark); font-size:.7rem; }
+      .tag-list { display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem; }
+      .tag-list span { border:1px solid var(--line); padding:.35rem .55rem; color:var(--muted); font-size:.68rem; }
+      .metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.8rem; margin:2rem 0 3rem; }
+      .metric-card { padding:1.25rem; box-shadow:none; }
+      .metric-card strong { display:block; color:var(--gold-dark); font:500 1.5rem Georgia,serif; }
+      .metric-card span { display:block; margin-top:.55rem; font-size:.84rem; font-weight:650; }
+      .metric-card small { display:block; margin-top:.3rem; color:var(--muted); font-size:.73rem; }
+      .calculator { background:var(--surface); border:1px solid var(--line); }
+      .calculator-side { padding:clamp(1.2rem,3vw,2rem); }
+      .calculator-results { border-left:1px solid var(--line); }
+      .range-line { display:flex; justify-content:space-between; margin:1rem 0 .35rem; color:var(--muted); font-size:.78rem; }
+      .form-range { accent-color:var(--gold-dark); }
+      .preset-row { display:flex; flex-wrap:wrap; gap:.35rem; }
+      .preset { padding:.35rem .5rem; border:1px solid var(--line); background:transparent; color:var(--ink); font-size:.7rem; }
+      .preset.active { background:var(--gold); color:#171715; }
+      .mode-row { display:flex; gap:.5rem; margin-top:1rem; }
+      .mode-row button { flex:1; border:1px solid var(--line); background:transparent; color:var(--ink); padding:.55rem; font-size:.76rem; }
+      .mode-row button.active { background:var(--gold); color:#171715; }
+      .period-card { height:100%; padding:1rem; background:var(--surface-2); }
+      .period-card span { color:var(--muted); font-size:.72rem; }
+      .period-card strong { display:block; margin:.45rem 0; font:500 clamp(1rem,2vw,1.35rem) Georgia,serif; }
+      .period-card small { color:var(--gold-dark); }
+      .quote-box { padding:2rem; background:var(--surface-2); border-left:2px solid var(--gold); }
+      .quote-box blockquote { margin:1.4rem 0; font:500 clamp(1.5rem,3.2vw,2.5rem)/1.25 Georgia,serif; }
+      .faq-card { padding:1rem 1.25rem; box-shadow:none; }
+      .accordion-item,.accordion-button,.accordion-body { background:var(--surface); color:var(--ink); border-color:var(--line); }
+      .accordion-button:not(.collapsed) { color:var(--ink); background:var(--surface-2); box-shadow:none; }
+      .accordion-body { color:var(--muted); font-size:.84rem; line-height:1.7; }
+      .disclosure { padding:1.2rem 0; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; line-height:1.7; }
+      footer { padding:2.5rem 0 1.5rem; background:var(--surface-2); border-top:1px solid var(--line); color:var(--muted); font-size:.75rem; }
+      .footer-links { display:flex; flex-wrap:wrap; gap:1rem; }
+      .footer-links a { text-decoration:none; }
+      @media(max-width:991.98px) {
+        .navbar-collapse { padding:.6rem 0; }
+        .steps { grid-template-columns:repeat(2,1fr); }
+        .calculator-results { border-left:0; border-top:1px solid var(--line); }
+      }
+      @media(max-width:575.98px) {
+        .hero { padding:3.3rem 0; }
+        .phone-row { grid-template-columns:minmax(104px,.78fr) minmax(0,1.22fr); gap:.45rem; }
+        .steps,.metric-grid { grid-template-columns:1fr 1fr; }
+        .section { padding:4rem 0; }
+      }
+      @media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; } }
+    </style>
+  </head>
+  <body data-theme="day">
+    <div class="top-note" data-copy="banner"></div>
+    <nav class="navbar navbar-expand-lg sticky-top site-nav" aria-label="Päänavigaatio">
+      <div class="container py-2">
+        <a class="navbar-brand d-flex align-items-center" href="#top" aria-label="Alpha AI">
+          <span class="brand-mark"><span>A</span></span> ALPHA AI
+        </a>
+        <div class="header-tools order-lg-3 ms-auto ms-lg-3">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" class="active" data-language="fi" aria-pressed="true">FI</button>
+            <button type="button" data-language="en" aria-pressed="false">EN</button>
+          </div>
+          <button class="theme-button" id="themeToggle" type="button" aria-label="Vaihda yötilaan" title="Vaihda yötilaan">☾</button>
+        </div>
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Avaa valikko">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse order-lg-2" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#how-it-works" data-copy="navHow"></a></li>
+            <li class="nav-item"><a class="nav-link" href="#system" data-copy="navSystem"></a></li>
+            <li class="nav-item"><a class="nav-link" href="#performance" data-copy="navCalc"></a></li>
+            <li class="nav-item"><a class="nav-link" href="#about" data-copy="navAbout"></a></li>
+            <li class="nav-item"><a class="nav-link" href="#faq" data-copy="navFaq"></a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-gold btn-sm" href="#registration" data-copy="getStarted"></a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <main id="main">
-    <!-- HOME -->
-    <div class="page is-on" data-page="home">
+    <main id="top">
       <section class="hero">
-        <p class="v-label kicker">London · United Kingdom</p>
-        <div class="hero-photo" data-parallax="0.18">
-          <img src="images/mike-clyne.jpg" alt="Portrait of Mike Clyne, international financial markets professional based in London" />
-        </div>
-        <div class="hero-mask"></div>
-        <div class="container hero-copy">
-          <div class="col-lg-7">
-            <p class="kicker d-lg-none mb-4">London · United Kingdom</p>
-            <h1 class="display-serif">Independent thinking for complex financial markets.</h1>
-            <p class="lede mt-4 col-lg-9">Mike Clyne is an international financial markets professional based in London, specialising in active market analysis, day trading, financial strategy and long-term professional relationships with private clients.</p>
-            <div class="d-flex flex-column flex-sm-row gap-3 mt-5">
-              <a class="btn btn-ghost" href="#contact" data-nav>Request a Private Consultation</a>
-              <a class="btn btn-ghost" href="#profile" data-nav>Explore Professional Profile</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-graph py-5">
-        <div class="container">
-          <div class="row g-4">
-            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">15+</div><div class="kicker mt-2">Years in financial markets</div></div></div>
-            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">300+</div><div class="kicker mt-2">Private clients</div></div></div>
-            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">15+</div><div class="kicker mt-2">Countries</div></div></div>
-            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">3,000+</div><div class="kicker mt-2">Market analyses</div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-ivory section">
         <div class="container">
           <div class="row align-items-center g-5">
-            <div class="col-lg-5"><img class="img-arch" src="images/stone-facade.jpg" alt="Portland stone architectural detail in the City of London" /></div>
-            <div class="col-lg-7">
-              <p class="kicker">About</p>
-              <h2 class="display-sm mt-3">A global perspective shaped by markets.</h2>
-              <p class="mt-4">Born in Germany and raised in Canada, Mike Clyne developed an international perspective from an early age. His professional career later brought him into the United Kingdom, where London became the centre of his professional activities across global financial markets.</p>
-              <p>Today, his work combines active market analysis, financial strategy, research and long-term professional relationships with clients internationally.</p>
-              <a class="kicker d-inline-block mt-3" href="#about" data-nav>Discover Mike’s Story →</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-paper section">
-        <div class="container">
-          <p class="kicker">International journey</p>
-          <h2 class="display-sm mt-3 col-lg-8">Germany to London, and a professional network beyond.</h2>
-          <div class="row mt-5 g-4">
-            <div class="col-md"><p class="kicker">01</p><h3 class="mt-3">Germany</h3><p class="text-secondary">Born in Germany, where an international perspective began.</p></div>
-            <div class="col-md"><p class="kicker">02</p><h3 class="mt-3">Canada</h3><p class="text-secondary">Raised in Canada, developing across cultures and geographies.</p></div>
-            <div class="col-md"><p class="kicker">03</p><h3 class="mt-3">United Kingdom</h3><p class="text-secondary">Professional development continued in the United Kingdom.</p></div>
-            <div class="col-md"><p class="kicker">04</p><h3 class="mt-3">London</h3><p class="text-secondary">London became the centre of his professional activities.</p></div>
-            <div class="col-md"><p class="kicker">05</p><h3 class="mt-3">International client network</h3><p class="text-secondary">Professional relationships across 15+ countries and 300+ private clients.</p></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-ivory section">
-        <div class="container">
-          <p class="kicker">Academic foundation</p>
-          <h2 class="display-sm mt-3 col-lg-9">Education provides the foundation. Experience provides perspective.</h2>
-          <div class="row mt-5 g-5">
             <div class="col-lg-6">
-              <p class="kicker">University</p>
-              <h3 class="display-sm mt-3">University of Cambridge</h3>
-              <p class="mt-3">PhD</p>
-              <p class="placeholder">Subject: [INSERT VERIFIED INFORMATION]</p>
+              <div class="eyebrow mb-3" data-copy="heroEyebrow"></div>
+              <h1 class="hero-title mb-4"><span data-copy="heroTitle"></span> <span class="gold-text" data-copy="heroAccent"></span></h1>
+              <p class="hero-copy mb-4" data-copy="heroCopy"></p>
+              <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-gold" href="#registration" data-copy="heroButton"></a>
+                <a class="btn btn-outline-gold" href="#how-it-works" data-copy="heroSecondary"></a>
+              </div>
+              <div class="hero-stats">
+                <div><strong>FI / EN</strong><span data-copy="statLanguage"></span></div>
+                <div><strong data-copy="statTheme"></strong><span data-copy="statThemeLabel"></span></div>
+              </div>
+              <div class="hero-note" data-copy="heroNote"></div>
             </div>
-            <div class="col-lg-6">
-              <p class="kicker">Further education</p>
-              <h3 class="display-sm mt-3">London Business School</h3>
-              <p class="mt-3">Two-Year Advanced Programme</p>
-              <p class="placeholder">Programme title: [INSERT VERIFIED INFORMATION]</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-paper section">
-        <div class="container">
-          <p class="kicker">Expertise</p>
-          <h2 class="display-sm mt-3">Understanding markets from multiple perspectives.</h2>
-          <div class="mt-5">
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><div class="col-md-4"><h3>Financial markets</h3></div><div class="col-md-6">Broad experience studying global financial markets.</div></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><div class="col-md-4"><h3>Day trading & short-term analysis</h3></div><div class="col-md-6">Focus on short-term market movements, timing, liquidity, volatility, technical structures and market sentiment.</div></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><div class="col-md-4"><h3>Market research</h3></div><div class="col-md-6">Independent research and continuous study of market behaviour, economic developments and changing conditions.</div></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><div class="col-md-4"><h3>Financial strategy</h3></div><div class="col-md-6">Structured thinking around market environments, decision-making and risk.</div></div>
-            <div class="row py-4 border-top border-bottom"><div class="col-md-2 kicker">05</div><div class="col-md-4"><h3>Business & strategic perspective</h3></div><div class="col-md-6">Broader thinking around business development, strategic planning, leadership and professional relationships.</div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-graph section">
-        <div class="container">
-          <p class="kicker">Market coverage</p>
-          <h2 class="display-sm mt-3 col-lg-8">Experience across asset classes — without implied hierarchy.</h2>
-          <div class="row g-4 mt-4">
-            <div class="col-md"><h3>Equities</h3></div>
-            <div class="col-md"><h3>Indices</h3></div>
-            <div class="col-md"><h3>Commodities</h3></div>
-            <div class="col-md"><h3>Currencies</h3></div>
-            <div class="col-md"><h3>Digital Assets</h3></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-dark section">
-        <div class="container">
-          <p class="kicker">Methodology</p>
-          <h2 class="display-sm mt-3">Analysis before action.</h2>
-          <p class="lede col-lg-8 mt-3">The sequence below describes a working method. It is not a system that guarantees successful trades.</p>
-          <div class="mt-5">
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><h3 class="col-md-3">Understand</h3><p class="col-md-7 mb-0">Establish context: the market, the timeframe, the prevailing conditions, and the question being asked.</p></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><h3 class="col-md-3">Analyse</h3><p class="col-md-7 mb-0">Examine structure, price, volume, volatility and the wider fundamental and sentiment picture as analytical inputs.</p></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><h3 class="col-md-3">Assess risk</h3><p class="col-md-7 mb-0">Consider exposure, downside, position size and the conditions under which the idea would be wrong.</p></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><h3 class="col-md-3">Act with discipline</h3><p class="col-md-7 mb-0">If action is taken, it is taken within predefined bounds — not in reaction to noise.</p></div>
-            <div class="row py-4 border-top"><div class="col-md-2 kicker">05</div><h3 class="col-md-3">Review & adapt</h3><p class="col-md-7 mb-0">After the fact, review what the market actually did. Adapt the process.</p></div>
-          </div>
-          <p class="mt-4 small" style="color:var(--stone)">Analytical inputs — not guarantees: market structure, price action, trading volume, volatility, technical indicators, fundamental developments, economic announcements, market sentiment, liquidity, potential catalysts.</p>
-        </div>
-      </section>
-
-      <section class="band-ivory section">
-        <div class="container">
-          <p class="kicker">Risk</p>
-          <h2 class="display-sm mt-3">Opportunity begins with understanding risk.</h2>
-          <p class="col-lg-8 mt-3">Responsible market participation requires understanding both potential opportunity and potential downside. Markets are uncertain. Volatility is a feature of them.</p>
-          <div class="row g-4 mt-4">
-            <div class="col-md-6"><h3>Position sizing</h3><p>The size of a position is a risk decision before it is a market decision.</p></div>
-            <div class="col-md-6"><h3>Exposure</h3><p>Concentration, correlation and overall exposure are examined as part of any considered view.</p></div>
-            <div class="col-md-6"><h3>Volatility</h3><p>Volatility can expand without notice. Analysis that ignores it is incomplete.</p></div>
-            <div class="col-md-6"><h3>Entry planning</h3><p>If a market is engaged, the terms of engagement should be defined in advance.</p></div>
-            <div class="col-md-6"><h3>Exit planning</h3><p>Knowing how a view would be concluded is part of taking it seriously.</p></div>
-            <div class="col-md-6"><h3>Discipline</h3><p>Process exists to constrain improvisation when conditions become emotionally loud.</p></div>
-            <div class="col-md-6"><h3>Scenario analysis</h3><p>More than one path is possible. Preparing for alternative outcomes is a form of respect for uncertainty.</p></div>
-            <div class="col-md-6"><h3>Changing market conditions</h3><p>A reading that was sound yesterday may be incomplete today. Review is continuous.</p></div>
-          </div>
-          <p class="small mt-4">Financial markets involve risk and past performance is not indicative of future results.</p>
-        </div>
-      </section>
-
-      <section class="band-graph section">
-        <div class="container">
-          <p class="kicker">Private clients</p>
-          <h2 class="display-sm mt-3">Professional relationships without borders.</h2>
-          <p class="col-lg-8 mt-3">The practice works with 300+ private clients across 15+ countries. Discretion is treated as a professional obligation. Client names are never used as social proof.</p>
-        </div>
-      </section>
-
-      <section class="band-dark section">
-        <div class="container">
-          <p class="kicker">Professional philosophy</p>
-          <h2 class="display-sm mt-3">Five principles that govern the work.</h2>
-          <div class="row py-4 border-top mt-4"><div class="col-md-2 display-sm" style="color:var(--champagne)">01</div><h3 class="col-md-4">Learn continuously</h3><p class="col-md-6">The financial markets never stop changing, and neither should the professional studying them.</p></div>
-          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">02</div><h3 class="col-md-4">Analyse before acting</h3><p class="col-md-6">Every potential opportunity deserves careful examination before a decision is made.</p></div>
-          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">03</div><h3 class="col-md-4">Respect risk</h3><p class="col-md-6">Understanding potential downside is an essential part of responsible market participation.</p></div>
-          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">04</div><h3 class="col-md-4">Communicate clearly</h3><p class="col-md-6">Financial knowledge has little value if it cannot be communicated effectively.</p></div>
-          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">05</div><h3 class="col-md-4">Build relationships</h3><p class="col-md-6">Long-term professional success is built through trust, consistency and respect.</p></div>
-        </div>
-      </section>
-
-      <section class="parallax-band">
-        <img src="images/london-skyline.jpg" alt="City of London skyline at dusk" data-parallax="0.28" />
-        <div class="overlay"></div>
-        <div class="copy">
-          <div class="container">
-            <p class="kicker">London</p>
-            <h2 class="display-sm mt-3 col-lg-8">Based in London. Connected to global markets.</h2>
-            <p class="lede col-lg-7 mt-3">London provides the professional environment from which Mike follows international market developments, conducts research, communicates with clients and develops his financial-market activities.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-ivory section">
-        <div class="container">
-          <p class="kicker">Insights</p>
-          <h2 class="display-sm mt-3">A quiet journal of market thinking.</h2>
-          <p class="col-lg-8 mt-3">Demonstration articles only — replace before publication. These notes are not live research.</p>
-          <div class="row g-4 mt-4">
-            <div class="col-lg-4 border-top pt-4">
-              <p class="kicker">Market Analysis</p>
-              <h3 class="mt-3"><a href="#insight-structure" data-nav>Reading market structure with discipline</a></h3>
-              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-            </div>
-            <div class="col-lg-4 border-top pt-4">
-              <p class="kicker">Financial Strategy</p>
-              <h3 class="mt-3"><a href="#insight-risk" data-nav>Risk is the first question</a></h3>
-              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-            </div>
-            <div class="col-lg-4 border-top pt-4">
-              <p class="kicker">Global Markets</p>
-              <h3 class="mt-3"><a href="#insight-global" data-nav>An international reading of global markets</a></h3>
-              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band-dark section">
-        <div class="container">
-          <blockquote class="display-sm col-lg-10 fst-italic">“The markets reward preparation, discipline, and the willingness to keep learning. My objective has never been simply to follow the market. It has been to understand it, adapt to it, and continually improve the way I approach it.”</blockquote>
-          <p class="kicker mt-4">Mike Clyne</p>
-        </div>
-      </section>
-
-      <section class="band-paper section">
-        <div class="container d-lg-flex justify-content-between align-items-end">
-          <div>
-            <p class="kicker">Consultation</p>
-            <h2 class="display-sm mt-3">Start a private conversation.</h2>
-            <p class="col-lg-8 mt-3">For selected private clients, professional introductions and enquiries relating to financial markets, strategy and advisory services.</p>
-          </div>
-          <a class="btn btn-ink mt-4 mt-lg-0" href="#contact" data-nav>Request a Private Consultation</a>
-        </div>
-      </section>
-    </div>
-
-    <!-- ABOUT -->
-    <div class="page" data-page="about">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">About</p>
-          <h1 class="display-serif mt-3 col-lg-10">A global perspective shaped by markets.</h1>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <div class="row g-5">
-            <div class="col-lg-5"><img class="img-arch" src="images/mike-clyne.jpg" alt="Mike Clyne" /></div>
-            <div class="col-lg-7">
-              <p>Mike Clyne was born in Germany on 2 February 1989 and raised in Canada. That early movement between countries formed a practical international outlook — one that later became central to his professional life in financial markets.</p>
-              <p>He now works from London, United Kingdom, as an international financial markets professional. His work is concentrated on active financial-market analysis, day trading, short-term market analysis, financial strategy, market research, and broader business and strategic thinking.</p>
-              <p>Across 15+ years of studying, analysing and participating in global financial markets, he has built experience in equities, indices, commodities, currencies and digital assets. More than 3,000 individual market analyses and trading setups have been undertaken as part of an ongoing practice of observation, structure and review.</p>
-              <p>His professional relationships extend to 300+ private clients across 15+ countries. The emphasis is on discretion, clear communication and long-term professional relationships.</p>
-              <p>He holds a PhD from the University of Cambridge and completed a two-year advanced programme at London Business School. The working philosophy is simple: learn continuously, analyse before acting, respect risk, communicate clearly, and build long-term professional relationships.</p>
-              <a class="btn btn-ink mt-3" href="#profile" data-nav>Explore professional profile</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- EXPERTISE -->
-    <div class="page" data-page="expertise">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">Expertise</p>
-          <h1 class="display-serif mt-3 col-lg-10">Understanding markets from multiple perspectives.</h1>
-          <p class="lede col-lg-8 mt-4">Areas of professional focus — not claims of superior performance in any market.</p>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><div class="col-md-4"><h2>Financial markets</h2></div><div class="col-md-6">Fifteen or more years spent studying, analysing and participating in global financial markets, with an emphasis on structure, context and independent observation.</div></div>
-          <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><div class="col-md-4"><h2>Day trading & short-term analysis</h2></div><div class="col-md-6">Primary specialisation. Attention is given to short-term movements, timing, liquidity, volatility, technical structures and market sentiment. These are analytical inputs. They do not make outcomes predictable.</div></div>
-          <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><div class="col-md-4"><h2>Market research</h2></div><div class="col-md-6">Independent research underpins the practice. More than 3,000 individual market analyses and trading setups form part of a continuous study of market behaviour.</div></div>
-          <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><div class="col-md-4"><h2>Financial strategy</h2></div><div class="col-md-6">Structured thinking around market environments, decision-making and risk. Not a formula for results.</div></div>
-          <div class="row py-4 border-top"><div class="col-md-2 kicker">05</div><div class="col-md-4"><h2>Business & strategic perspective</h2></div><div class="col-md-6">Broader thinking around business development, strategic planning, leadership and professional relationships.</div></div>
-          <p class="small mt-5">Equities · Indices · Commodities · Currencies · Digital Assets. Financial markets involve risk and past performance is not indicative of future results.</p>
-        </div>
-      </section>
-    </div>
-
-    <!-- APPROACH -->
-    <div class="page" data-page="approach">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">Approach</p>
-          <h1 class="display-serif mt-3">Analysis before action.</h1>
-          <p class="lede col-lg-8 mt-4">A working method for examining markets with discipline. It is not a system that guarantees successful trades.</p>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <h2 class="display-sm">The method</h2>
-          <ol class="mt-4">
-            <li class="mb-3"><strong>Understand.</strong> Establish context.</li>
-            <li class="mb-3"><strong>Analyse.</strong> Examine structure, price, volume, volatility and the wider picture as inputs.</li>
-            <li class="mb-3"><strong>Assess risk.</strong> Consider exposure, downside and invalidation.</li>
-            <li class="mb-3"><strong>Act with discipline.</strong> If action is taken, it is taken within predefined bounds.</li>
-            <li class="mb-3"><strong>Review & adapt.</strong> Markets change; so must the study of them.</li>
-          </ol>
-          <h2 class="display-sm mt-5">Opportunity begins with understanding risk.</h2>
-          <p class="mt-3">Responsible market participation requires understanding both potential opportunity and potential downside. Position sizing, exposure, volatility, entry and exit planning, discipline, scenario analysis and changing market conditions are all part of that examination.</p>
-          <p class="small">Financial markets involve risk and past performance is not indicative of future results.</p>
-        </div>
-      </section>
-    </div>
-
-    <!-- INSIGHTS -->
-    <div class="page" data-page="insights">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">Insights</p>
-          <h1 class="display-serif mt-3">A quiet journal of market thinking.</h1>
-          <p class="lede col-lg-8 mt-4">Demonstration articles only, prepared to show the editorial layout. They are not published research.</p>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <article class="mb-5 pb-4 border-bottom">
-            <p class="kicker">Market Analysis</p>
-            <h2 class="mt-2"><a href="#insight-structure" data-nav>Reading market structure with discipline</a></h2>
-            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-          </article>
-          <article class="mb-5 pb-4 border-bottom">
-            <p class="kicker">Financial Strategy</p>
-            <h2 class="mt-2"><a href="#insight-risk" data-nav>Risk is the first question</a></h2>
-            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-          </article>
-          <article>
-            <p class="kicker">Global Markets</p>
-            <h2 class="mt-2"><a href="#insight-global" data-nav>An international reading of global markets</a></h2>
-            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
-          </article>
-        </div>
-      </section>
-    </div>
-
-    <div class="page" data-page="insight-structure">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Market Analysis</p><h1 class="display-serif mt-3">Reading market structure with discipline</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research, not a market recommendation, and not a record of any actual analysis undertaken for clients.</p>
-        <p>Short-term market analysis begins with structure. Price does not move in a vacuum: it moves through ranges, through areas of prior interest, and through conditions of greater or lesser liquidity.</p>
-        <p>None of this predicts what happens next. Structure is an input. Financial markets involve risk and past performance is not indicative of future results.</p>
-      </div></section>
-    </div>
-    <div class="page" data-page="insight-risk">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Financial Strategy</p><h1 class="display-serif mt-3">Risk is the first question</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research and should be replaced before publication.</p>
-        <p>It is tempting to begin with opportunity. Markets, however, settle accounts in the opposite order: exposure is real before outcome is known.</p>
-        <p>Financial markets involve risk and past performance is not indicative of future results.</p>
-      </div></section>
-    </div>
-    <div class="page" data-page="insight-global">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Global Markets</p><h1 class="display-serif mt-3">An international reading of global markets</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research and should be replaced before publication.</p>
-        <p>Global markets do not open as a single room. They open as a sequence of sessions, currencies and institutional calendars. London sits at a useful junction in that sequence.</p>
-        <p>Financial markets involve risk and past performance is not indicative of future results.</p>
-      </div></section>
-    </div>
-
-    <!-- PROFILE -->
-    <div class="page" data-page="profile">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">Professional profile</p>
-          <h1 class="display-serif mt-3">Mike Clyne</h1>
-          <p class="lede mt-3">International Financial Markets Professional</p>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <div class="row g-5">
-            <div class="col-lg-4"><img class="img-arch" src="images/mike-clyne.jpg" alt="Editorial portrait of Mike Clyne" /></div>
-            <div class="col-lg-8">
-              <dl class="row">
-                <dt class="col-sm-4 kicker">Born</dt><dd class="col-sm-8">2 February 1989</dd>
-                <dt class="col-sm-4 kicker">Birthplace</dt><dd class="col-sm-8">Germany</dd>
-                <dt class="col-sm-4 kicker">Raised</dt><dd class="col-sm-8">Canada</dd>
-                <dt class="col-sm-4 kicker">Current professional base</dt><dd class="col-sm-8">London, United Kingdom</dd>
-                <dt class="col-sm-4 kicker">Market experience</dt><dd class="col-sm-8">15+ years</dd>
-                <dt class="col-sm-4 kicker">Private clients</dt><dd class="col-sm-8">300+</dd>
-                <dt class="col-sm-4 kicker">International client network</dt><dd class="col-sm-8">15+ countries</dd>
-                <dt class="col-sm-4 kicker">Market analyses</dt><dd class="col-sm-8">3,000+</dd>
-                <dt class="col-sm-4 kicker">Primary specialisation</dt><dd class="col-sm-8">Day Trading & Short-Term Market Analysis</dd>
-                <dt class="col-sm-4 kicker">Additional expertise</dt><dd class="col-sm-8">Finance, Business Management, Market Research & Strategy</dd>
-                <dt class="col-sm-4 kicker">Academic qualification</dt><dd class="col-sm-8">PhD, University of Cambridge</dd>
-                <dt class="col-sm-4 kicker">Further education</dt><dd class="col-sm-8">London Business School — Two-Year Advanced Programme</dd>
-                <dt class="col-sm-4 kicker">Core markets</dt><dd class="col-sm-8">Equities, Indices, Commodities, Currencies, Digital Assets</dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="page" data-page="contact">
-      <header class="section" style="padding-top:8rem">
-        <div class="container">
-          <p class="kicker">Contact</p>
-          <h1 class="display-serif mt-3">Start a private conversation.</h1>
-          <p class="lede col-lg-8 mt-4">For selected private clients, professional introductions and enquiries relating to financial markets, strategy and advisory services.</p>
-        </div>
-      </header>
-      <section class="band-ivory section">
-        <div class="container">
-          <div class="row g-5">
-            <div class="col-lg-7">
-              <form id="consultForm" novalidate>
-                <div class="row g-4">
-                  <div class="col-md-6">
-                    <label class="kicker" for="name">Name</label>
-                    <input class="form-control mt-2" id="name" name="name" required minlength="2" />
+            <div class="col-lg-5 offset-lg-1" id="registration">
+              <form class="registration-card" id="registrationForm" novalidate>
+                <div class="eyebrow mb-2" data-copy="formEyebrow"></div>
+                <h2 class="mb-2" data-copy="formTitle"></h2>
+                <p class="tiny-note mb-4" data-copy="formIntro"></p>
+                <div class="mb-3">
+                  <label class="form-label" for="fullName" data-copy="fullName"></label>
+                  <input class="form-control" id="fullName" name="fullName" autocomplete="off" placeholder="Alex Morgan" required />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label" for="emailAddress" data-copy="email"></label>
+                  <input class="form-control" id="emailAddress" name="email" type="email" autocomplete="off" placeholder="alex@example.com" required />
+                </div>
+                <div class="phone-row mb-2">
+                  <div>
+                    <label class="form-label" for="countryCode" data-copy="countryCode"></label>
+                    <select class="form-select" id="countryCode" aria-label="Phone country code">
+                      <option value="+358">FI +358</option><option value="+44">GB +44</option><option value="+1">US +1</option>
+                      <option value="+49">DE +49</option><option value="+33">FR +33</option><option value="+46">SE +46</option>
+                      <option value="+47">NO +47</option><option value="+45">DK +45</option>
+                    </select>
                   </div>
-                  <div class="col-md-6">
-                    <label class="kicker" for="email">Email</label>
-                    <input class="form-control mt-2" id="email" name="email" type="email" required />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="kicker" for="country">Country</label>
-                    <input class="form-control mt-2" id="country" name="country" required />
-                  </div>
-                  <div class="col-md-6">
-                    <label class="kicker" for="phone">Telephone (optional)</label>
-                    <input class="form-control mt-2" id="phone" name="phone" type="tel" />
-                  </div>
-                  <div class="col-12">
-                    <label class="kicker" for="message">Message</label>
-                    <textarea class="form-control mt-2" id="message" name="message" rows="6" required minlength="20"></textarea>
+                  <div>
+                    <label class="form-label" for="phoneNumber" data-copy="phone"></label>
+                    <input class="form-control" id="phoneNumber" name="phone" type="tel" autocomplete="off" placeholder="20 0000 0000" required />
                   </div>
                 </div>
-                <div class="visually-hidden" aria-hidden="true">
-                  <label>Company website <input name="companyWebsite" tabindex="-1" autocomplete="off" /></label>
-                </div>
-                <p class="small mt-4">By sending this form you agree that the details provided may be used to consider and respond to your enquiry. Please do not include sensitive financial account information. See the <a href="#privacy" data-nav>Privacy Policy</a>.</p>
-                <p class="small text-danger" id="formError" hidden></p>
-                <button class="btn btn-ink mt-2" type="submit">Request a private consultation</button>
+                <p class="hint mb-3" data-copy="ipHint"></p>
+                <button class="btn btn-gold w-100" type="submit" data-copy="formButton"></button>
+                <p class="tiny-note mt-3 mb-0" data-copy="formPrivacy"></p>
+                <p class="tiny-note mt-2 mb-0" data-copy="formAdvisor"></p>
+                <div class="status mt-3" id="formStatus" role="status" aria-live="polite"></div>
               </form>
-              <div id="formSuccess" hidden class="border p-4">
-                <p class="kicker">Enquiry recorded</p>
-                <h2 class="mt-3">Thank you. The message has been received.</h2>
-                <p class="mt-3">Direct email delivery is not yet connected. This form is operating in a professional placeholder mode until a verified correspondence channel is configured. [INSERT VERIFIED INFORMATION]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-strip">
+        <div class="container"><div class="row g-3">
+          <div class="col-6 col-lg-3 proof-item"><span class="proof-mark">◎</span><span data-copy="proof1"></span></div>
+          <div class="col-6 col-lg-3 proof-item"><span class="proof-mark">⌁</span><span data-copy="proof2"></span></div>
+          <div class="col-6 col-lg-3 proof-item"><span class="proof-mark">↗</span><span data-copy="proof3"></span></div>
+          <div class="col-6 col-lg-3 proof-item"><span class="proof-mark">◉</span><span data-copy="proof4"></span></div>
+        </div></div>
+      </section>
+
+      <section class="section" id="how-it-works">
+        <div class="container">
+          <div class="eyebrow" data-copy="howEyebrow"></div>
+          <h2 class="section-title"><span data-copy="howTitle"></span> <span class="gold-text" data-copy="howAccent"></span></h2>
+          <p class="section-copy" data-copy="howIntro"></p>
+          <div class="steps">
+            <article class="step"><div class="step-number">01</div><h3 data-copy="step1Title"></h3><p data-copy="step1Text"></p></article>
+            <article class="step"><div class="step-number">02</div><h3 data-copy="step2Title"></h3><p data-copy="step2Text"></p></article>
+            <article class="step"><div class="step-number">03</div><h3 data-copy="step3Title"></h3><p data-copy="step3Text"></p></article>
+            <article class="step"><div class="step-number">04</div><h3 data-copy="step4Title"></h3><p data-copy="step4Text"></p></article>
+            <article class="step"><div class="step-number">05</div><h3 data-copy="step5Title"></h3><p data-copy="step5Text"></p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section system-section" id="system">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="eyebrow mb-3" data-copy="systemEyebrow"></div>
+              <h2 class="section-title mt-0"><span data-copy="systemTitle"></span> <span class="gold-text" data-copy="systemAccent"></span></h2>
+              <p class="section-copy" data-copy="systemCopy1"></p>
+              <p class="section-copy" data-copy="systemCopy2"></p>
+              <div class="tag-list"><span data-copy="tag1"></span><span data-copy="tag2"></span><span data-copy="tag3"></span><span data-copy="tag4"></span><span data-copy="tag5"></span><span data-copy="tag6"></span></div>
+            </div>
+            <div class="col-lg-6">
+              <div class="surface">
+                <div class="eyebrow mb-3" data-copy="flowEyebrow"></div>
+                <div class="flow">
+                  <div class="flow-item"><span>01</span><b data-copy="flow1"></b></div>
+                  <div class="flow-item"><span>02</span><b data-copy="flow2"></b></div>
+                  <div class="flow-item"><span>03</span><b data-copy="flow3"></b></div>
+                  <div class="flow-item"><span>04</span><b data-copy="flow4"></b></div>
+                  <div class="flow-item"><span>05</span><b data-copy="flow5"></b></div>
+                  <div class="flow-item"><span>06</span><b data-copy="flow6"></b></div>
+                </div>
+                <p class="tiny-note mt-3 mb-0" data-copy="flowNote"></p>
               </div>
             </div>
-            <div class="col-lg-5">
-              <img class="img-arch mb-4" src="images/private-office.jpg" alt="Quiet private office interior" />
-              <p class="kicker">Location</p>
-              <p>London, United Kingdom</p>
-              <p class="placeholder">Correspondence channels: [INSERT VERIFIED INFORMATION]</p>
-              <p class="small">Financial markets involve risk and past performance is not indicative of future results.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="performance">
+        <div class="container">
+          <div class="eyebrow" data-copy="calcEyebrow"></div>
+          <h2 class="section-title"><span data-copy="calcTitle"></span> <span class="gold-text" data-copy="calcAccent"></span></h2>
+          <p class="section-copy" data-copy="calcIntro"></p>
+          <div class="metric-grid">
+            <div class="metric-card"><strong>01</strong><span data-copy="metric1"></span><small data-copy="metric1Text"></small></div>
+            <div class="metric-card"><strong>02</strong><span data-copy="metric2"></span><small data-copy="metric2Text"></small></div>
+            <div class="metric-card"><strong>03</strong><span data-copy="metric3"></span><small data-copy="metric3Text"></small></div>
+            <div class="metric-card"><strong>04</strong><span data-copy="metric4"></span><small data-copy="metric4Text"></small></div>
+          </div>
+          <div class="calculator row g-0">
+            <div class="calculator-side col-lg-5">
+              <div class="eyebrow mb-2" data-copy="modelEyebrow"></div>
+              <h3 class="h3 mb-3" data-copy="modelTitle"></h3>
+              <label class="form-label" for="balanceInput" data-copy="balanceLabel"></label>
+              <div class="preset-row mb-3">
+                <button class="preset" type="button" data-balance="200">€200</button><button class="preset" type="button" data-balance="500">€500</button>
+                <button class="preset" type="button" data-balance="1000">€1k</button><button class="preset active" type="button" data-balance="5000">€5k</button>
+                <button class="preset" type="button" data-balance="10000">€10k</button><button class="preset" type="button" data-balance="25000">€25k</button>
+              </div>
+              <input class="form-control" id="balanceInput" type="number" min="1" max="10000000" value="5000" />
+              <div class="range-line"><label for="tradesInput" data-copy="tradesLabel"></label><output id="tradesOutput">2</output></div>
+              <input class="form-range" id="tradesInput" type="range" min="1" max="5" step="1" value="2" />
+              <div class="range-line"><label for="profitInput" data-copy="profitLabel"></label><output id="profitOutput">1.5%</output></div>
+              <input class="form-range" id="profitInput" type="range" min="1" max="2.5" step=".1" value="1.5" />
+              <div class="range-line"><label for="allocationInput" data-copy="allocationLabel"></label><output id="allocationOutput">20%</output></div>
+              <input class="form-range" id="allocationInput" type="range" min="10" max="20" step="1" value="20" />
+              <div class="mode-row"><button type="button" id="compoundMode" class="active" data-copy="compound"></button><button type="button" id="linearMode" data-copy="linear"></button></div>
+              <p class="tiny-note mt-3 mb-0" data-copy="modelNote"></p>
+            </div>
+            <div class="calculator-side calculator-results col-lg-7">
+              <div class="row g-2" id="periodCards">
+                <div class="col-6"><div class="period-card"><span data-period="0"></span><strong id="value0"></strong><small id="change0"></small></div></div>
+                <div class="col-6"><div class="period-card"><span data-period="1"></span><strong id="value1"></strong><small id="change1"></small></div></div>
+                <div class="col-6"><div class="period-card"><span data-period="2"></span><strong id="value2"></strong><small id="change2"></small></div></div>
+                <div class="col-6"><div class="period-card"><span data-period="3"></span><strong id="value3"></strong><small id="change3"></small></div></div>
+              </div>
+              <div class="disclosure mt-3" data-copy="calcDisclosure"></div>
             </div>
           </div>
         </div>
       </section>
-    </div>
 
-    <!-- LEGAL -->
-    <div class="page" data-page="privacy">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Privacy Policy</h1></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p class="placeholder">This page is a professional placeholder pending verified legal review. It is not legal advice.</p>
-        <h2 class="mt-5">Information that may be collected</h2>
-        <p>If you use the consultation form, you may provide a name, email address, country, telephone number and a message. A cookie preference may also be stored in your browser.</p>
-        <h2 class="mt-5">Contact for privacy enquiries</h2>
-        <p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-      </div></section>
-    </div>
-    <div class="page" data-page="cookies">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Cookie Policy</h1></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>Essential preferences (including cookie consent itself) may be stored locally. Optional analytics are off unless you choose to allow them. Important pages and the consultation form remain available regardless of analytics consent.</p>
-        <button class="btn btn-ink mt-4" type="button" id="resetCookies">Reset cookie preference</button>
-      </div></section>
-    </div>
-    <div class="page" data-page="terms">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Terms of Use</h1></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p class="placeholder">These terms will govern use of this website once an operating legal entity is confirmed. [INSERT VERIFIED LEGAL ENTITY]</p>
-        <p>Content on this website is general professional information. It is not personalised advice, not an invitation to deal, and not an offer of regulated financial services. Financial markets involve risk and past performance is not indicative of future results.</p>
-      </div></section>
-    </div>
-    <div class="page" data-page="regulatory">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Regulatory information</p><h1 class="display-serif mt-3">Regulatory information</h1></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>The fields below are placeholders pending independent verification. Until then, nothing on this website should be read as a statement of FCA authorisation or regulated status.</p>
-        <dl class="mt-4">
-          <dt class="kicker">Legal entity</dt><dd class="placeholder mb-4">[INSERT VERIFIED LEGAL ENTITY]</dd>
-          <dt class="kicker">Regulatory status</dt><dd class="placeholder mb-4">[INSERT VERIFIED STATUS]</dd>
-          <dt class="kicker">FCA Firm Reference Number</dt><dd class="placeholder mb-4">[INSERT VERIFIED FRN]</dd>
-          <dt class="kicker">Permitted activities</dt><dd class="placeholder mb-4">[INSERT VERIFIED ACTIVITIES]</dd>
-          <dt class="kicker">Principal / Appointed Representative</dt><dd class="placeholder mb-4">[INSERT IF APPLICABLE]</dd>
-          <dt class="kicker">Complaints information</dt><dd class="placeholder mb-4">[INSERT VERIFIED COMPLAINTS INFORMATION]</dd>
-        </dl>
-      </div></section>
-    </div>
-    <div class="page" data-page="complaints">
-      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Complaints</p><h1 class="display-serif mt-3">Complaints</h1></div></header>
-      <section class="band-ivory section"><div class="container col-lg-8">
-        <p>This page is a professional structure awaiting verified complaints information. No acknowledgement periods, ombudsman routes, or legal procedures are stated here because they have not been supplied.</p>
-        <h2 class="mt-4">Who to contact</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-        <h2 class="mt-4">How to submit a complaint</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-        <h2 class="mt-4">Expected acknowledgement</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-        <h2 class="mt-4">Escalation procedure</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-        <h2 class="mt-4">Relevant regulatory information</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-        <h2 class="mt-4">Final-response information</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
-      </div></section>
-    </div>
-  </main>
-
-  <footer class="py-5">
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-5">
-          <p class="kicker">Mike Clyne</p>
-          <p class="mt-3">International Financial Markets Professional</p>
-          <p class="small" style="color:var(--stone)">London, United Kingdom</p>
+      <section class="section system-section" id="about">
+        <div class="container">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-5"><div class="quote-box"><div class="eyebrow" data-copy="aboutEyebrow"></div><blockquote data-copy="quote"></blockquote><div class="tiny-note" data-copy="quoteBy"></div></div></div>
+            <div class="col-lg-7"><h2 class="section-title mt-0" data-copy="aboutTitle"></h2><p class="section-copy" data-copy="aboutText1"></p><p class="section-copy" data-copy="aboutText2"></p></div>
+          </div>
         </div>
-        <div class="col-lg-3">
-          <p class="kicker">Navigate</p>
-          <ul class="list-unstyled mt-3">
-            <li><a href="#about" data-nav>About</a></li>
-            <li><a href="#expertise" data-nav>Expertise</a></li>
-            <li><a href="#approach" data-nav>Approach</a></li>
-            <li><a href="#insights" data-nav>Insights</a></li>
-            <li><a href="#profile" data-nav>Professional Profile</a></li>
-            <li><a href="#contact" data-nav>Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <p class="kicker">Legal</p>
-          <ul class="list-unstyled mt-3">
-            <li><a href="#privacy" data-nav>Privacy Policy</a></li>
-            <li><a href="#cookies" data-nav>Cookie Policy</a></li>
-            <li><a href="#terms" data-nav>Terms</a></li>
-            <li><a href="#regulatory" data-nav>Regulatory Information</a></li>
-            <li><a href="#complaints" data-nav>Complaints</a></li>
-          </ul>
-        </div>
-      </div>
-      <hr class="rule my-4" />
-      <div class="d-lg-flex justify-content-between small" style="color:var(--stone)">
-        <p class="col-lg-7">Financial markets involve risk and past performance is not indicative of future results.</p>
-        <p>© 2026 Mike Clyne. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+      </section>
 
-  <div class="cookie" id="cookieBar" hidden>
-    <div class="container d-lg-flex justify-content-between align-items-end gap-4">
-      <div>
-        <p class="kicker">Cookies</p>
-        <p class="small mb-0 mt-2">This site stores an essential preference so that a cookie choice can be remembered. Optional analytics are off unless you allow them.</p>
-      </div>
-      <div class="d-flex gap-2 mt-3 mt-lg-0">
-        <button class="btn btn-ghost" type="button" id="cookieEssential">Essential only</button>
-        <button class="btn btn-ghost" type="button" id="cookieAll">Allow analytics</button>
-      </div>
-    </div>
-  </div>
+      <section class="section" id="advisors">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-5"><div class="eyebrow" data-copy="supportEyebrow"></div><h2 class="section-title" data-copy="supportTitle"></h2><p class="section-copy" data-copy="supportText"></p></div>
+            <div class="col-lg-7"><div class="surface"><div class="row g-3">
+              <div class="col-sm-6"><div class="info-card"><h3 data-copy="support1"></h3><p data-copy="support1Text"></p></div></div>
+              <div class="col-sm-6"><div class="info-card"><h3 data-copy="support2"></h3><p data-copy="support2Text"></p></div></div>
+              <div class="col-sm-6"><div class="info-card"><h3 data-copy="support3"></h3><p data-copy="support3Text"></p></div></div>
+              <div class="col-sm-6"><div class="info-card"><h3 data-copy="support4"></h3><p data-copy="support4Text"></p></div></div>
+            </div></div></div>
+          </div>
+        </div>
+      </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    (function () {
-      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const nav = document.getElementById("siteNav");
-      function show(id) {
-        document.querySelectorAll("[data-page]").forEach(function (p) {
-          p.classList.toggle("is-on", p.getAttribute("data-page") === id);
-        });
-        window.scrollTo(0, 0);
-        document.querySelectorAll("[data-nav]").forEach(function (a) {
-          a.classList.toggle("active", a.getAttribute("href") === "#" + id);
-        });
-        const collapse = document.getElementById("navMain");
-        if (collapse && collapse.classList.contains("show") && window.bootstrap) {
-          window.bootstrap.Collapse.getOrCreateInstance(collapse).hide();
-        }
-      }
-      function route() {
-        const id = (location.hash || "#home").replace("#", "") || "home";
-        const exists = document.querySelector('[data-page="' + id + '"]');
-        show(exists ? id : "home");
-      }
-      window.addEventListener("hashchange", route);
-      route();
-      window.addEventListener("scroll", function () {
-        nav.classList.toggle("solid", window.scrollY > 20);
-        if (reduce) return;
-        document.querySelectorAll("[data-parallax]").forEach(function (el) {
-          const speed = parseFloat(el.getAttribute("data-parallax") || "0.2");
-          const rect = el.getBoundingClientRect();
-          const y = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
-          el.style.transform = "translate3d(0," + y + "px,0)";
-        });
-      }, { passive: true });
-      const form = document.getElementById("consultForm");
-      const success = document.getElementById("formSuccess");
-      const err = document.getElementById("formError");
-      if (form) {
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          if (form.companyWebsite && form.companyWebsite.value) { form.hidden = true; success.hidden = false; return; }
-          if (!form.checkValidity()) {
-            err.hidden = false;
-            err.textContent = "Please complete the required fields.";
-            return;
+      <section class="section system-section" id="faq">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-lg-4"><div class="eyebrow" data-copy="faqEyebrow"></div><h2 class="section-title" data-copy="faqTitle"></h2><p class="section-copy" data-copy="faqIntro"></p></div>
+            <div class="col-lg-8"><div class="faq-card">
+              <div class="accordion accordion-flush" id="faqAccordion">
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" data-copy="faq1Q"></button></h3><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body" data-copy="faq1A"></div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" data-copy="faq2Q"></button></h3><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body" data-copy="faq2A"></div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" data-copy="faq3Q"></button></h3><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body" data-copy="faq3A"></div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" data-copy="faq4Q"></button></h3><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body" data-copy="faq4A"></div></div></div>
+                <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" data-copy="faq5Q"></button></h3><div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body" data-copy="faq5A"></div></div></div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="d-flex flex-column flex-lg-row justify-content-between gap-3 mb-4">
+          <div><strong class="text-body">ALPHA AI</strong><p class="mb-0 mt-2" data-copy="footerLine"></p></div>
+          <nav class="footer-links" aria-label="Footer"><a href="#about" data-copy="navAbout"></a><a href="#how-it-works" data-copy="navHow"></a><a href="#system" data-copy="navSystem"></a><a href="#performance" data-copy="navCalc"></a><a href="#faq" data-copy="navFaq"></a><a href="#registration" data-copy="navContact"></a></nav>
+        </div>
+        <div class="disclosure" data-copy="footerDisclosure"></div>
+        <div class="d-flex justify-content-between flex-wrap gap-2 mt-3"><span>© ALPHA AI LIMITED · <span data-copy="footerConcept"></span></span><span data-copy="footerPalette"></span></div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script>
+      (() => {
+        const text = {
+          fi: {
+            banner:"FIKTIIVINEN KONSEPTI — ALPHA AI JA SIVULLA KUVATUT SIJOITUSPALVELUT EIVÄT OLE OIKEITA PALVELUJA.",
+            navHow:"Näin se toimii",navSystem:"Järjestelmä",navCalc:"Laskuri",navAbout:"Meistä",navFaq:"UKK",navContact:"Yhteystiedot",getStarted:"Aloita",
+            heroEyebrow:"London · automatisoitu markkinatiedustelu",heroTitle:"Markkinat muuttuvat.",heroAccent:"Sinä asetat suunnan.",
+            heroCopy:"Alpha AI on romaaniin luotu sijoitusjärjestelmän konsepti. Tutustu tarinan ideaan ja kokeile oletuksiin perustuvaa laskuria.",
+            heroButton:"Aloita Alpha AI:lla",heroSecondary:"Katso, miten se toimii",statLanguage:"Kieli",statTheme:"Päivä / yö",statThemeLabel:"Teema",heroNote:"ROMAANIKONSEPTI · EI OIKEA SIJOITUSPALVELU",
+            formEyebrow:"Luo tili · vain demo",formTitle:"Aloita Alpha AI:lla",formIntro:"Tämä fiktiivinen konsepti ei tarjoa tilipalvelua. Älä anna oikeita henkilötietoja; mitään ei lähetetä eikä tallenneta.",
+            fullName:"Koko nimi",email:"Sähköpostiosoite",countryCode:"Maakoodi",phone:"Puhelinnumero",ipHint:"Valitse suuntanumero itse. IP-osoitetta ei tarkisteta.",
+            formButton:"Aloita Alpha AI:lla",formPrivacy:"Demolomake: tarkistus tehdään selaimessa. Tietoja ei lähetetä eikä tallenneta. Älä anna oikeita henkilötietoja.",
+            formAdvisor:"Tarinassa englanninkielinen asiantuntija auttaa tilin käyttöönotossa. Tämä sivu ei tarjoa oikeita neuvonantajapalveluja.",
+            proof1:"Maailmanmarkkinat · tarinakonsepti",proof2:"Tekoälyanalyysi · konsepti",proof3:"Säädettävä laskuri · demotoiminto",proof4:"Suomi ja englanti",
+            howEyebrow:"Näin se toimii",howTitle:"Sinä asetat suunnan.",howAccent:"Konsepti hoitaa loput.",howIntro:"Alpha AI:n tarina kuvaa helppokäyttöistä sijoitusjärjestelmää. Nämä vaiheet esittelevät fiktiivisen asiakaspolun.",
+            step1Title:"Rekisteröidy",step1Text:"Tällä sivulla on vain paikallinen demolomake. Tiliä ei luoda.",step2Title:"Saa opastusta",step2Text:"Romaanissa englanninkielinen asiantuntija auttaa käyttöönotossa.",
+            step3Title:"Aseta tavoitteet",step3Text:"Valitse tarinassa säännölliset tulot, kasvu tai tasapaino.",step4Title:"Määritä asetukset",step4Text:"Konsepti kuvaa yksinkertaisia toiminta- ja käyttöasetuksia.",
+            step5Title:"Tutustu järjestelmään",step5Text:"Tarinassa tekoäly analysoi markkinoita ja käsittelee päätöksiä.",
+            systemEyebrow:"Alpha AI -järjestelmä",systemTitle:"Yksi tekoäly.",systemAccent:"Maailman markkinat.",systemCopy1:"Alpha AI:n konsepti kuvaa järjestelmää, joka kokoaa markkinatietoa, vertailee signaaleja ja punnitsee mahdollisia skenaarioita.",
+            systemCopy2:"Romaanin järjestelmässä yhdistyvät historiallinen käyttäytyminen, tekniset indikaattorit, talousuutiset, tunnelma ja markkinoiden väliset yhteydet. Tämä on tarinan kuvaus, ei todellisen järjestelmän ominaisuuskuvaus.",
+            tag1:"Osakkeet",tag2:"Valuutat",tag3:"Indeksit",tag4:"Raaka-aineet",tag5:"Digitaaliset varat",tag6:"Makrotalous",flowEyebrow:"Havaitse · analysoi · päätä · toteuta",
+            flow1:"Markkinadata",flow2:"Tekoälyanalyysi",flow3:"Mahdollisuuksien tunnistus",flow4:"Kaupankäyntipäätös",flow5:"Automaattinen toteutus",flow6:"Jatkuva seuranta",
+            flowNote:"Markkinat toimivat eri aikatauluilla. Tarinan järjestelmä seuraa markkinoita niiden aukioloaikojen mukaan; osa digitaalisista markkinoista toimii jatkuvasti.",
+            calcEyebrow:"Laskuri · havainnollistava skenaario",calcTitle:"Kokeile",calcAccent:"laskentamallia.",calcIntro:"Muuta oletuksia ja vertaa korkoa korolle -mallin ja lineaarisen laskennan tuloksia. Laskuri ei ennusta tuottoa.",
+            metric1:"Säädettävät syötteet",metric1Text:"Saldo, kaupankäyntitiheys ja oletukset",metric2:"Kaksi laskentatapaa",metric2Text:"Korkoa korolle tai lineaarinen",
+            metric3:"Neljä ajanjaksoa",metric3Text:"Päivästä vuoteen",metric4:"Paikallinen laskenta",metric4Text:"Tuloksia ei tallenneta",
+            modelEyebrow:"Alpha AI · skenaariolaskuri",modelTitle:"Matemaattinen esimerkki",balanceLabel:"Aloitussaldo (€)",tradesLabel:"Kauppoja päivässä",profitLabel:"Oletettu muutos kauppaa kohti",allocationLabel:"Saldon osuus kauppaa kohti",
+            compound:"Korkoa korolle",linear:"Lineaarinen",modelNote:"Oletus: 22 kaupankäyntipäivää kuukaudessa ja 264 päivää vuodessa.",
+            periods:["1 päivä","1 kuukausi","3 kuukautta","1 vuosi"],calcDisclosure:"Fiktiivisiin oletuksiin perustuva matemaattinen esimerkki, ei toteutunut tai ennustettu tulos. Olettaa toistuvia positiivisia muutoksia eikä huomioi kuluja, veroja, tappioita, liukumaa tai markkinaolosuhteiden vaihtelua. Ei sijoitusneuvo, tarjous eikä tuottolupaus.",
+            aboutEyebrow:"Alpha AI · romaanikonsepti",quote:"“Markkinoiden seuraaminen ei yksin riitä. Ratkaisevaa on signaalien ymmärtäminen.”",quoteBy:"Julian Ashford · fiktiivinen hahmo",
+            aboutTitle:"Tarina automatisoidusta markkina-analyysistä.",aboutText1:"Alpha AI ja sen perustaja Julian Ashford ovat romaanin fiktiivisiä luomuksia. Yritystarina sijoittuu Lontooseen ja tutkii, miten koneoppiminen voisi muuttaa markkinatiedon käsittelyä.",
+            aboutText2:"Tämä sivu esittelee tarinan maailmaa. Se ei edusta todellista yritystä, sijoitusalustaa, kaupankäyntijärjestelmää tai sijoitustuloksia.",
+            supportEyebrow:"Tuki tarinassa",supportTitle:"Henkilökohtaista opastusta.",supportText:"Romaanissa englanninkielinen asiantuntija auttaa asiakasta tilin käyttöönotossa ja järjestelmän käytössä. Tämä sivu ei tarjoa oikeita neuvonantajia, asiakastukea eikä tilipalveluja.",
+            support1:"Tilin käyttöönotto",support1Text:"Opastusta romaanin palvelussa.",support2:"Tuki eri laitteilla",support2Text:"Fiktiivinen asiantuntija auttaa tietokone- ja mobiilikäytössä.",
+            support3:"Selkeä kokonaiskuva",support3Text:"Opastusta salkun ja kaupankäynnin tietojen tulkintaan.",support4:"Vastauksia kysymyksiin",support4Text:"Kuvitteellinen yhteyshenkilö auttaa tiliasioissa.",
+            faqEyebrow:"Selkeät vastaukset",faqTitle:"Usein kysytyt kysymykset.",faqIntro:"Alpha AI on fiktiivinen konsepti. Sivulla ei voi avata oikeaa tiliä tai sijoittaa.",
+            faq1Q:"Mikä Alpha AI on?",faq1A:"Alpha AI on romaaniin The 2nd Multiverse luotu kuvitteellinen automaattisen sijoitusjärjestelmän konsepti.",
+            faq2Q:"Voinko avata tilin tällä sivulla?",faq2A:"Et. Lomake on demo, joka tarkistaa tiedot vain selaimessa. Mitään ei lähetetä tai tallenneta, eikä tiliä luoda.",
+            faq3Q:"Ovatko laskurin luvut sijoitustuottoja?",faq3A:"Eivät. Ne ovat käyttäjän valitsemista oletuksista laskettuja hypoteettisia esimerkkejä, eivät todellisia tuloksia tai ennusteita.",
+            faq4Q:"Tarkistetaanko maakoodi IP-osoitteesta?",faq4A:"Ei. Valitse puhelimen maakoodi itse. Sivusto ei tee IP-paikannusta.",
+            faq5Q:"Onko Alpha AI säännelty sijoituspalvelu?",faq5A:"Ei. Tämä sivu ei edusta säänneltyä sijoituspalvelua, sijoitustarjousta eikä taloudellista neuvontaa.",
+            footerLine:"Fiktiivinen finanssiteknologian konsepti · The 2nd Multiverse",footerDisclosure:"TÄRKEÄ TIEDOTE — ALPHA AI, sen henkilöt, tuotteet, tuottoväitteet, asiakaskokemukset ja yrityshistoria ovat romaanin fiktiivistä sisältöä. Tämä sivu ei tarjoa oikeaa rahoituspalvelua, sijoitustarjousta, taloudellista neuvontaa, asiantuntijaa tai asiakasalustaa. Laskuri esittää vain matemaattisen esimerkin. Demolomakkeen tietoja ei lähetetä eikä tallenneta. Älä syötä oikeita henkilötietoja tai lähetä rahaa.",
+            footerConcept:"FIKTIIVINEN KONSEPTI",footerPalette:"Päivä- ja yötila · Suomi ja englanti",themeDay:"Vaihda päivätilaan",themeNight:"Vaihda yötilaan",
+            nameError:"Anna etu- ja sukunimi.",emailError:"Anna kelvollinen sähköpostiosoite.",phoneError:"Tarkista puhelinnumero.",formSuccess:"Demo valmis. Tietoja ei lähetetty eikä tallennettu."
+          },
+          en: {
+            banner:"FICTIONAL CONCEPT — ALPHA AI AND THE INVESTMENT SERVICES DESCRIBED HERE ARE NOT REAL SERVICES.",
+            navHow:"How it works",navSystem:"System",navCalc:"Calculator",navAbout:"About",navFaq:"FAQ",navContact:"Contact",getStarted:"Get started",
+            heroEyebrow:"London · automated market intelligence",heroTitle:"Markets change.",heroAccent:"You set the direction.",
+            heroCopy:"Alpha AI is an investment-system concept created for a novel. Explore the story idea and try the assumption-based calculator.",
+            heroButton:"Start with Alpha AI",heroSecondary:"See how it works",statLanguage:"Language",statTheme:"Day / night",statThemeLabel:"Theme",heroNote:"NOVEL CONCEPT · NOT A REAL INVESTMENT SERVICE",
+            formEyebrow:"Create your account · demo only",formTitle:"Start with Alpha AI",formIntro:"This fictional concept has no account service. Do not enter real personal details; nothing will be sent or stored.",
+            fullName:"Full name",email:"Email address",countryCode:"Country code",phone:"Phone number",ipHint:"Choose the calling code yourself. No IP lookup is performed.",
+            formButton:"Start with Alpha AI",formPrivacy:"Demo form: validation runs in your browser. Nothing is sent or stored. Do not enter real personal details.",
+            formAdvisor:"In the story, an English-speaking specialist assists with account setup. This page does not offer real advisor services.",
+            proof1:"Global markets · story concept",proof2:"AI analysis · concept",proof3:"Adjustable calculator · demo feature",proof4:"Finnish and English",
+            howEyebrow:"How it works",howTitle:"You set the direction.",howAccent:"The concept handles the rest.",howIntro:"Alpha AI’s story describes an approachable investment system. These steps outline the fictional customer journey.",
+            step1Title:"Register",step1Text:"This page has a local demo form only. No account is created.",step2Title:"Get guidance",step2Text:"In the novel, an English-speaking specialist helps with setup.",
+            step3Title:"Set priorities",step3Text:"Choose regular income, growth, or balance in the story.",step4Title:"Configure",step4Text:"The concept describes simple activity and access settings.",
+            step5Title:"Explore the system",step5Text:"In the story, AI analyzes markets and processes decisions.",
+            systemEyebrow:"The Alpha AI System",systemTitle:"One AI.",systemAccent:"Global markets.",systemCopy1:"The Alpha AI concept describes a system that gathers market data, compares signals, and weighs possible scenarios.",
+            systemCopy2:"The novel’s system combines historical behavior, technical indicators, economic news, sentiment, and cross-market relationships. This is a story description, not a technical specification for a real system.",
+            tag1:"Equities",tag2:"Currencies",tag3:"Indices",tag4:"Commodities",tag5:"Digital assets",tag6:"Macro data",flowEyebrow:"Detect · analyze · decide · execute",
+            flow1:"Market data",flow2:"AI analysis",flow3:"Opportunity detection",flow4:"Trade decision",flow5:"Automated execution",flow6:"Continuous monitoring",
+            flowNote:"Markets follow different schedules. The story’s system monitors markets according to their opening hours; some digital asset markets operate continuously.",
+            calcEyebrow:"Calculator · illustrative scenario",calcTitle:"Try the",calcAccent:"calculation model.",calcIntro:"Change the assumptions and compare compound-growth and linear calculations. The calculator does not forecast returns.",
+            metric1:"Adjustable inputs",metric1Text:"Balance, trade frequency, and assumptions",metric2:"Two calculation modes",metric2Text:"Compound or linear",
+            metric3:"Four time periods",metric3Text:"One day to one year",metric4:"Local calculation",metric4Text:"Results are not saved",
+            modelEyebrow:"Alpha AI · scenario calculator",modelTitle:"Mathematical example",balanceLabel:"Starting balance (€)",tradesLabel:"Trades per day",profitLabel:"Assumed change per trade",allocationLabel:"Balance allocation per trade",
+            compound:"Compound growth",linear:"Linear",modelNote:"Assumption: 22 trading days per month and 264 days per year.",
+            periods:["1 day","1 month","3 months","1 year"],calcDisclosure:"A mathematical example based on fictional assumptions, not an actual or forecast result. It assumes repeated positive changes and excludes fees, taxes, losses, slippage, and changing market conditions. It is not investment advice, an offer, or a promise of returns.",
+            aboutEyebrow:"Alpha AI · novel concept",quote:"“Watching markets is not enough. What matters is understanding their signals.”",quoteBy:"Julian Ashford · fictional character",
+            aboutTitle:"A story about automated market analysis.",aboutText1:"Alpha AI and its founder, Julian Ashford, are fictional creations for a novel. The company story is set in London and explores how machine learning could change the way market information is processed.",
+            aboutText2:"This website introduces the story world. It does not represent a real company, investment platform, trading system, or investment results.",
+            supportEyebrow:"Support in the story",supportTitle:"Personal guidance.",supportText:"In the novel, an English-speaking specialist helps customers set up an account and use the system. This page does not offer real advisors, customer support, or account services.",
+            support1:"Account setup",support1Text:"Guidance in the novel’s service.",support2:"Help across devices",support2Text:"A fictional specialist helps with desktop and mobile access.",
+            support3:"A clearer overview",support3Text:"Walk-throughs of portfolio and trading information.",support4:"Answers to questions",support4Text:"An imagined contact for account questions.",
+            faqEyebrow:"Clear answers",faqTitle:"Frequently asked questions.",faqIntro:"Alpha AI is fictional. This page cannot open an account or accept investments.",
+            faq1Q:"What is Alpha AI?",faq1A:"Alpha AI is a fictional automated investment-system concept created for the novel The 2nd Multiverse.",
+            faq2Q:"Can I open an account on this page?",faq2A:"No. The form is a demo that validates details only in your browser. Nothing is sent or stored, and no account is created.",
+            faq3Q:"Are the calculator values investment returns?",faq3A:"No. They are hypothetical examples calculated from user-selected assumptions, not actual results or forecasts.",
+            faq4Q:"Is the country code detected from my IP address?",faq4A:"No. Choose a phone country code manually. The site does not perform IP geolocation.",
+            faq5Q:"Is Alpha AI a regulated investment service?",faq5A:"No. This page does not represent a regulated investment service, investment offer, or financial advice.",
+            footerLine:"Fictional financial technology concept · The 2nd Multiverse",footerDisclosure:"IMPORTANT NOTICE — ALPHA AI, its people, products, performance claims, customer experiences, and company history are fictional content from a novel. This page does not offer a real financial service, investment offer, financial advice, advisor, or customer platform. The calculator provides a mathematical example only. Demo form details are not sent or stored. Do not enter real personal details or send money.",
+            footerConcept:"FICTIONAL CONCEPT",footerPalette:"Day and night mode · Finnish and English",themeDay:"Switch to day mode",themeNight:"Switch to night mode",
+            nameError:"Enter a first and last name.",emailError:"Enter a valid email address.",phoneError:"Check the phone number.",formSuccess:"Demo complete. No details were sent or saved."
           }
-          form.hidden = true;
-          success.hidden = false;
+        };
+        let language = "fi";
+        let isCompound = true;
+        const body = document.body;
+        const $ = (id) => document.getElementById(id);
+        try {
+          language = localStorage.getItem("alpha-ai-language") === "en" ? "en" : "fi";
+          if (localStorage.getItem("alpha-ai-theme") === "night") body.dataset.theme = "night";
+        } catch {}
+        $("themeToggle").textContent = body.dataset.theme === "day" ? "☾" : "☀";
+        const setLanguage = (next) => {
+          language = next;
+          document.documentElement.lang = next;
+          document.title = next === "fi" ? "ALPHA AI — Markkinatiedustelun konsepti" : "ALPHA AI — Market intelligence concept";
+          document.querySelector('meta[name="description"]').content = next === "fi"
+            ? "ALPHA AI — Fiktiivinen tarinakonsepti suomeksi ja englanniksi sekä demolaskuri."
+            : "ALPHA AI — Fictional story concept in Finnish and English with a demo calculator.";
+          document.querySelector(".navbar").setAttribute("aria-label", next === "fi" ? "Päänavigaatio" : "Main navigation");
+          document.querySelector(".lang-switch").setAttribute("aria-label", next === "fi" ? "Kieli" : "Language");
+          document.querySelectorAll("[data-copy]").forEach((node) => { node.textContent = text[next][node.dataset.copy] || ""; });
+          document.querySelectorAll("[data-period]").forEach((node) => { node.textContent = text[next].periods[Number(node.dataset.period)]; });
+          document.querySelectorAll("[data-language]").forEach((button) => {
+            const selected = button.dataset.language === next;
+            button.classList.toggle("active", selected);
+            button.setAttribute("aria-pressed", String(selected));
+          });
+          $("themeToggle").setAttribute("aria-label", body.dataset.theme === "day" ? text[next].themeNight : text[next].themeDay);
+          $("themeToggle").title = $("themeToggle").getAttribute("aria-label");
+          $("formStatus").textContent = "";
+          try { localStorage.setItem("alpha-ai-language", next); } catch {}
+          updateCalculator();
+        };
+        const toggleTheme = () => {
+          body.dataset.theme = body.dataset.theme === "day" ? "night" : "day";
+          $("themeToggle").textContent = body.dataset.theme === "day" ? "☾" : "☀";
+          $("themeToggle").setAttribute("aria-label", body.dataset.theme === "day" ? text[language].themeNight : text[language].themeDay);
+          $("themeToggle").title = $("themeToggle").getAttribute("aria-label");
+          try { localStorage.setItem("alpha-ai-theme", body.dataset.theme); } catch {}
+        };
+        $("themeToggle").addEventListener("click", toggleTheme);
+        document.querySelectorAll("[data-language]").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.language)));
+
+        const balanceInput = $("balanceInput"), tradesInput = $("tradesInput"), profitInput = $("profitInput"), allocationInput = $("allocationInput");
+        const money = (value) => new Intl.NumberFormat(language === "fi" ? "fi-FI" : "en-IE", { style:"currency", currency:"EUR", maximumFractionDigits:0 }).format(value);
+        function updateCalculator() {
+          const balance = Math.max(1, Number(balanceInput.value) || 1);
+          const trades = Number(tradesInput.value), profit = Number(profitInput.value), allocation = Number(allocationInput.value);
+          $("tradesOutput").textContent = String(trades);
+          $("profitOutput").textContent = `${profit.toFixed(1)}%`;
+          $("allocationOutput").textContent = `${allocation}%`;
+          [1,22,66,264].forEach((days,index) => {
+            const result = isCompound
+              ? balance * Math.pow(1 + allocation / 100 * profit / 100, trades * days)
+              : balance + balance * allocation / 100 * profit / 100 * trades * days;
+            const change = (result / balance - 1) * 100;
+            $(`value${index}`).textContent = money(result);
+            $(`change${index}`).textContent = `${change >= 0 ? "+" : ""}${change.toFixed(1)}%`;
+          });
+          document.querySelectorAll(".preset").forEach((button) => button.classList.toggle("active", Number(button.dataset.balance) === balance));
+        }
+        document.querySelectorAll(".preset").forEach((button) => button.addEventListener("click", () => { balanceInput.value = button.dataset.balance; updateCalculator(); }));
+        [balanceInput,tradesInput,profitInput,allocationInput].forEach((input) => input.addEventListener("input", updateCalculator));
+        $("compoundMode").addEventListener("click", () => { isCompound = true; $("compoundMode").classList.add("active"); $("linearMode").classList.remove("active"); updateCalculator(); });
+        $("linearMode").addEventListener("click", () => { isCompound = false; $("linearMode").classList.add("active"); $("compoundMode").classList.remove("active"); updateCalculator(); });
+        $("registrationForm").addEventListener("submit", (event) => {
+          event.preventDefault();
+          const form = event.currentTarget;
+          const name = $("fullName").value.trim(), email = $("emailAddress").value.trim(), phone = $("phoneNumber").value.trim();
+          if (name.split(/\s+/).length < 2) { $("formStatus").textContent = text[language].nameError; return; }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $("formStatus").textContent = text[language].emailError; return; }
+          if (!/^[+()\d\s.-]{5,20}$/.test(phone)) { $("formStatus").textContent = text[language].phoneError; return; }
+          form.reset();
+          $("formStatus").textContent = text[language].formSuccess;
         });
-      }
-      const bar = document.getElementById("cookieBar");
-      if (!localStorage.getItem("mc-cookie-consent")) bar.hidden = false;
-      function setConsent(analytics) {
-        localStorage.setItem("mc-cookie-consent", JSON.stringify({ essential: true, analytics: analytics }));
-        bar.hidden = true;
-      }
-      document.getElementById("cookieEssential").onclick = function () { setConsent(false); };
-      document.getElementById("cookieAll").onclick = function () { setConsent(true); };
-      document.getElementById("resetCookies").onclick = function () {
-        localStorage.removeItem("mc-cookie-consent");
-        location.hash = "#home";
-        location.reload();
-      };
-    })();
-  </script>
-</body>
+        setLanguage(language);
+        updateCalculator();
+      })();
+    </script>
+  </body>
 </html>
