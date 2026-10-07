@@ -1,249 +1,308 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Standard Swiss • Growth Engine</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f3efe5" />
+    <meta name="description" content="Mike Clyne is a London-based financial-markets professional focused on active trading, thoughtful analysis, risk discipline and international client relationships." />
+    <meta property="og:title" content="Mike Clyne | International Financial Markets Professional" />
+    <meta property="og:description" content="A professional profile focused on active trading, thoughtful analysis and international client relationships." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" />
+    <title>Mike Clyne | International Financial Markets Professional</title>
+
+    <!-- Bootstrap 5 via CDN; no build step or additional files required. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-        body { font-family: 'Poppins', system_ui, sans-serif; }
-        .header-dark {
-            background: #0F2D52;
-            color: white;
-        }
+      :root {
+        --paper: #f3efe5;
+        --sand: #e9e4d7;
+        --ink: #26313b;
+        --body: #586466;
+        --teal: #244943;
+        --sage: #47716a;
+        --copper: #c47742;
+        --line: #d2ccbe;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "DM Sans", Arial, sans-serif;
+        --mono: "DM Mono", monospace;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+      body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+      a { color: inherit; }
+      .site-nav { background: rgba(243,239,229,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
+      .brand { font-size: .9rem; font-weight: 600; letter-spacing: -.03em; text-decoration: none; }
+      .brand-mark { color: var(--copper); font: 500 .75rem var(--mono); margin-right: .55rem; }
+      .navbar-nav .nav-link { color: #354448; font-size: .82rem; }
+      .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus { color: var(--copper); }
+      .eyebrow { color: #54706c; font: 500 .68rem var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+      .hero { min-height: 650px; position: relative; overflow: hidden; }
+      .hero-copy { position: relative; z-index: 2; padding-top: 5.5rem; padding-bottom: 4.5rem; }
+      .hero h1 { margin: 1.6rem 0 1.4rem; font: 500 clamp(4.4rem, 9vw, 7.8rem)/.9 var(--serif); letter-spacing: -.065em; }
+      .hero h1 em { color: var(--sage); font-weight: 500; }
+      .hero-lead { max-width: 470px; color: var(--body); font-size: 1.05rem; line-height: 1.7; }
+      .hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.2rem; }
+      .meta-label { display: block; margin-bottom: .45rem; }
+      .meta-value { color: #334145; font-size: .83rem; }
+      .portrait-wrap { position: relative; display: grid; min-height: 540px; place-items: center; }
+      .portrait-orb { position: absolute; width: min(430px, 90%); aspect-ratio: 1; border-radius: 50%; background: #e8dfca; }
+      .portrait-orb::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: repeating-linear-gradient(135deg, transparent 0 32px, rgba(72,108,102,.14) 33px, transparent 34px 66px); }
+      .portrait-orbit { position: absolute; width: min(480px, 100%); height: 250px; border: 1px solid #638079; border-radius: 50%; transform: rotate(-34deg); }
+      .portrait-card { position: relative; z-index: 1; width: min(230px, 56%); margin: 0; padding: 11px 11px 14px; background: #f8f5ed; box-shadow: 0 18px 45px rgba(30,44,41,.2); transform: rotate(-2deg); }
+      .portrait-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 34%; }
+      .portrait-card figcaption { padding-top: .7rem; color: #526966; font: .64rem var(--mono); letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+      .hero-caption { position: absolute; right: 0; bottom: 3rem; color: #78827c; font: .65rem var(--mono); }
+      .intro-band { padding: 1.6rem 0; color: var(--paper); background: var(--teal); }
+      .intro-band .eyebrow { color: #c9a582; }
+      .intro-band p { margin: 0; font: 500 1.1rem var(--serif); }
+      .section { padding: 7rem 0; }
+      .section-head { margin-bottom: 3rem; }
+      h2 { font: 500 clamp(2.7rem, 5vw, 4rem)/1.05 var(--serif); letter-spacing: -.05em; }
+      .section-lead { max-width: 700px; margin-top: 1.2rem; color: var(--body); font-size: 1.02rem; line-height: 1.75; }
+      .story-copy p { max-width: 520px; color: #4d5a5c; font-size: .97rem; line-height: 1.9; }
+      .story-note { max-width: 500px; margin-top: 2rem; padding: 1.2rem 1.3rem; border-left: 2px solid var(--copper); color: var(--teal); font: italic 1.3rem/1.5 var(--serif); }
+      .route-card { position: relative; min-height: 300px; display: flex; justify-content: space-between; align-items: center; overflow: hidden; padding: 2rem; background: var(--sand); }
+      .route-card::before { content: ""; position: absolute; inset: 0; opacity: .42; background: linear-gradient(31deg, transparent 49.8%,#91a19a 50%,transparent 50.2%),linear-gradient(148deg, transparent 49.8%,#91a19a 50%,transparent 50.2%); background-size: 100px 88px; }
+      .route-card::after { content: ""; position: absolute; width: 140%; height: 55px; left: -20%; top: 50%; border-top: 1px solid var(--copper); border-bottom: 1px solid var(--copper); transform: rotate(-29deg); }
+      .route-stop { position: relative; z-index: 1; color: #566661; font: .65rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+      .route-stop:last-child { align-self: flex-end; }
+      .route-dot { display: block; width: 11px; height: 11px; margin-bottom: .5rem; border-radius: 50%; background: var(--copper); outline: 5px solid rgba(196,119,66,.15); }
+      .approach { background: var(--sand); }
+      .approach-card { height: 100%; min-height: 200px; padding: 1.7rem; border: 1px solid var(--line); transition: background .2s ease, transform .2s ease; }
+      .approach-card:hover { background: #f0ecdf; transform: translateY(-3px); }
+      .approach-card h3 { margin: 2.1rem 0 .6rem; font: 500 1.55rem var(--serif); }
+      .approach-card p { margin: 0; color: #5b6664; font-size: .85rem; line-height: 1.75; }
+      .card-num { color: #bd7848; font: .68rem var(--mono); }
+      .market-list { border-top: 1px solid var(--line); }
+      .market-row { display: flex; justify-content: space-between; padding: 1.05rem 0; border-bottom: 1px solid var(--line); color: #354448; font-size: .9rem; }
+      .market-number { color: #a4a399; font: .68rem var(--mono); }
+      .principles { color: var(--paper); background: var(--teal); }
+      .principles .eyebrow { color: #c9a582; }
+      .principle-row { display: grid; grid-template-columns: 55px 1fr 1.3fr; gap: 1.25rem; align-items: baseline; padding: 1.5rem 0; border-top: 1px solid rgba(243,239,229,.24); }
+      .principle-row:last-child { border-bottom: 1px solid rgba(243,239,229,.24); }
+      .principle-no { color: #d49b71; font: .68rem var(--mono); }
+      .principle-row h3 { margin: 0; font: 500 1.45rem var(--serif); }
+      .principle-row p { max-width: 380px; margin: 0; color: #c1cbc1; font-size: .85rem; line-height: 1.7; }
+      .profile-panel { padding: 2.2rem; background: var(--sand); }
+      .profile-group { margin-bottom: 2.6rem; border-top: 1px solid #c7c1b5; padding-top: 1rem; }
+      .profile-group h3 { margin-bottom: 1rem; color: #54706c; font: .68rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+      .profile-line { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid rgba(54,66,64,.11); font-size: .82rem; }
+      .profile-line span:first-child { color: #68716e; }
+      .profile-line span:last-child { color: #344346; text-align: right; }
+      .claim-note { max-width: 760px; padding-left: 1rem; border-left: 1px solid var(--copper); color: #777f79; font-size: .72rem; line-height: 1.7; }
+      .closing { padding: 7rem 0; text-align: center; }
+      .closing h2 { max-width: 850px; margin: 1.3rem auto; font-size: clamp(3rem, 7vw, 5.5rem); }
+      .closing p { max-width: 540px; margin: 0 auto; color: #66716e; font-size: .9rem; line-height: 1.8; }
+      footer { padding: 1.2rem 0; border-top: 1px solid rgba(44,55,54,.15); color: #78817d; font: .65rem var(--mono); letter-spacing: .04em; }
+      footer a { color: #54706c; }
+      .disclaimer { margin-top: 1rem; font: .65rem/1.7 var(--sans); letter-spacing: 0; }
+      @media (max-width: 767.98px) {
+        .hero { min-height: auto; }
+        .hero-copy { padding-top: 4rem; padding-bottom: 2rem; }
+        .portrait-wrap { min-height: 350px; margin-top: -1rem; }
+        .portrait-card { width: 185px; }
+        .hero-caption { bottom: 1rem; }
+        .section { padding: 4.5rem 0; }
+        .principle-row { grid-template-columns: 35px 1fr; gap: .7rem; }
+        .principle-row p { grid-column: 2; }
+        .profile-panel { padding: 1.4rem; }
+        .profile-line { font-size: .74rem; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      }
     </style>
-</head>
-<body class="bg-zinc-50 text-zinc-800">
-    <!-- HEADER -->
-    <header class="header-dark border-b border-white/10">
-        <div class="max-w-screen-2xl mx-auto px-6 md:px-8 py-5 flex items-center justify-between">
-            <div class="flex items-center gap-x-4">
-                <img src="https://standardswiss.com/wp-content/themes/kastbroker/img/logo.png?1" alt="Standard Swiss" class="h-9 brightness-125">
-                <div class="flex items-center gap-x-1.5">
-                    <span class="font-semibold text-2xl tracking-tighter">Standard Swiss</span>
-                </div>
-            </div>
-            <div class="hidden md:block text-emerald-300 text-sm font-medium">GROWTH PROJECTION FOR Henrik Ståhl</div>
+  </head>
+  <body>
+    <a class="visually-hidden-focusable position-absolute top-0 start-0 p-3 bg-dark text-white" href="#main">Skip to content</a>
+    <nav class="navbar navbar-expand-md sticky-top site-nav" aria-label="Main navigation">
+      <div class="container">
+        <a class="brand" href="#top" aria-label="Mike Clyne, return to top"><span class="brand-mark">MC /</span>MIKE CLYNE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="siteNavigation">
+          <ul class="navbar-nav gap-md-4">
+            <li class="nav-item"><a class="nav-link" href="#perspective">Perspective</a></li>
+            <li class="nav-item"><a class="nav-link" href="#method">Method</a></li>
+            <li class="nav-item"><a class="nav-link" href="#markets">Markets</a></li>
+            <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+          </ul>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12">
-        <!-- Starting Capital -->
-        <div class="mb-8 md:mb-10">
-            <p class="text-center text-zinc-500 text-xs md:text-sm mb-4 tracking-widest">SELECT STARTING ACCOUNT BALANCE</p>
-            <div class="flex justify-center gap-3 sm:gap-6 flex-wrap" id="presets"></div>
-        </div>
-
-        <div class="grid lg:grid-cols-12 gap-6 md:gap-8">
-            <!-- Controls -->
-            <div class="lg:col-span-5">
-                <div class="bg-white rounded-3xl p-6 md:p-8 shadow border">
-                    <div class="mb-8">
-                        <label class="block text-sm font-semibold mb-3 text-zinc-700">GROWTH MODE</label>
-                        <div class="flex bg-zinc-100 rounded-3xl p-1">
-                            <button onclick="setMode(false)" id="btn-linear"
-                                class="flex-1 py-4 rounded-3xl text-sm font-medium">No Reinvestment</button>
-                            <button onclick="setMode(true)" id="btn-compound"
-                                class="flex-1 py-4 rounded-3xl text-sm font-medium">Compound Reinvestment</button>
-                        </div>
-                    </div>
-
-                    <div class="space-y-8">
-                        <div>
-                            <div class="flex justify-between mb-3 text-sm">
-                                <span class="font-medium">Trades per Day</span>
-                                <span id="trades-val" class="font-bold text-xl">2</span>
-                            </div>
-                            <input type="range" id="trades" min="1" max="5" value="2" class="w-full accent-emerald-600">
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-3 text-sm">
-                                <span class="font-medium">Profit per Trade</span>
-                                <span id="profit-val" class="font-bold text-xl text-emerald-600">1.5%</span>
-                            </div>
-                            <input type="range" id="profit" min="1" max="2.5" step="0.1" value="1.5" class="w-full accent-emerald-600">
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-3 text-sm">
-                                <span class="font-medium">Allocation %</span>
-                                <span id="alloc-val" class="font-bold text-xl">20%</span>
-                            </div>
-                            <input type="range" id="alloc" min="10" max="20" value="20" class="w-full accent-emerald-600">
-                        </div>
-                    </div>
-                </div>
+    <main id="main">
+      <section class="container hero" id="top" aria-labelledby="hero-title">
+        <div class="row align-items-center">
+          <div class="col-md-6 hero-copy">
+            <p class="eyebrow mb-0">International markets · London</p>
+            <h1 id="hero-title">Mike<br /><em>Clyne.</em></h1>
+            <p class="hero-lead">A financial-markets professional focused on active trading, thoughtful analysis and the long view of client relationships.</p>
+            <div class="hero-meta">
+              <div><span class="eyebrow meta-label">At work</span><span class="meta-value">Analysis · Risk · Relationships</span></div>
+              <div><span class="eyebrow meta-label">Based in</span><span class="meta-value">London, United Kingdom</span></div>
             </div>
-
-            <!-- Results -->
-            <div class="lg:col-span-7 space-y-6">
-                <!-- Main Result -->
-                <div class="bg-white rounded-3xl p-6 md:p-8 shadow">
-                    <div class="flex flex-col md:flex-row justify-between md:items-end gap-6">
-                        <div>
-                            <div class="text-zinc-500 text-sm">One Year Balance</div>
-                            <div id="final-balance" class="text-5xl md:text-6xl font-semibold tabular-nums text-navy">€12,920</div>
-                            <div id="daily-profit" class="text-emerald-600 text-base md:text-lg mt-2">Avg Daily Profit: €30</div>
-                        </div>
-                        <div class="text-right md:text-right">
-                            <div id="growth-pct" class="text-4xl md:text-5xl font-semibold text-emerald-600">+158.4%</div>
-                            <div id="mode-name" class="text-xs uppercase tracking-widest mt-1">Compound Reinvestment</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Period Cards -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4" id="period-cards"></div>
+            <a class="d-inline-flex align-items-center gap-3 mt-5 small text-decoration-none text-uppercase" style="font: .67rem var(--mono); letter-spacing: .12em;" href="#perspective"><span style="display:inline-block;width:34px;height:1px;background:var(--copper)"></span>Explore the profile</a>
+          </div>
+          <div class="col-md-6">
+            <div class="portrait-wrap" aria-label="Portrait of Mike Clyne">
+              <div class="portrait-orb" aria-hidden="true"></div>
+              <div class="portrait-orbit" aria-hidden="true"></div>
+              <figure class="portrait-card">
+                <img src="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" alt="Portrait of Mike Clyne" />
+                <figcaption>Mike Clyne · London</figcaption>
+              </figure>
+              <span class="hero-caption">51°30′N &nbsp; / &nbsp; International markets</span>
             </div>
+          </div>
         </div>
-    </div>
+      </section>
 
-    <div class="bg-amber-50 border-t border-amber-200 py-10 text-center text-xs md:text-sm max-w-2xl mx-auto px-6">
-        <strong>Official Calculation</strong><br>
-        This is an official calculation issued by Standard Swiss. The responsible person for this calculation is Thomas Gallanis.
-    </div>
+      <div class="intro-band">
+        <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
+          <span class="eyebrow">A working perspective</span>
+          <p>Clear thinking, considered action, relationships built over time.</p>
+        </div>
+      </div>
 
+      <section class="container section" id="perspective" aria-labelledby="perspective-title">
+        <div class="row section-head">
+          <div class="col-lg-3"><p class="eyebrow">01 / Perspective</p></div>
+          <div class="col-lg-9">
+            <h2 id="perspective-title">A career shaped<br />by a wider view.</h2>
+            <p class="section-lead">Mike’s path spans Germany, Canada and the United Kingdom. That international background informs how he approaches global markets: as connected systems, understood through context rather than in isolation.</p>
+          </div>
+        </div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 story-copy">
+            <p>Raised in Canada after being born in Germany, Mike developed an early interest in business, economics, technology and the forces that move markets. What began as curiosity grew into academic study and more than 15 years of market involvement, according to his profile.</p>
+            <p>Today, he is professionally based in London. From there, he follows international developments, conducts research and works with a client network described as spanning more than 15 countries.</p>
+            <blockquote class="story-note">“The markets reward preparation, discipline, and the willingness to keep learning.”</blockquote>
+          </div>
+          <div class="col-lg-6">
+            <div class="route-card" role="img" aria-label="A route from Germany through Canada to London">
+              <div class="route-stop"><span class="route-dot"></span>Germany</div>
+              <div class="route-stop"><span class="route-dot"></span>Canada</div>
+              <div class="route-stop"><span class="route-dot"></span>London</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="approach section" id="method" aria-labelledby="method-title">
+        <div class="container">
+          <div class="row section-head">
+            <div class="col-lg-3"><p class="eyebrow">02 / Method</p></div>
+            <div class="col-lg-9">
+              <h2 id="method-title">Process before impulse.</h2>
+              <p class="section-lead">Active trading calls for attention to what is happening—and discipline about what could happen next. Mike describes his approach as structured, multi-factor analysis, with risk considered throughout.</p>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">01 / Observe</span><h3>Read the conditions</h3><p>Market structure, price action, volume, volatility and liquidity help frame the environment.</p></article></div>
+            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">02 / Context</span><h3>Connect the signals</h3><p>Technical readings sit alongside economic developments, sentiment and potential catalysts.</p></article></div>
+            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">03 / Plan</span><h3>Define the risk</h3><p>Position sizing, exposure and entry and exit planning are part of considering a trade.</p></article></div>
+            <div class="col-md-6 col-lg-6"><article class="approach-card"><span class="card-num">04 / Adapt</span><h3>Stay with the process</h3><p>When conditions shift, reassessment matters more than reacting emotionally to each move.</p></article></div>
+            <div class="col-md-6 col-lg-6"><article class="approach-card"><span class="card-num">05 / Learn</span><h3>Keep refining</h3><p>Research and continued learning are central in markets that never stand still.</p></article></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container section" id="markets" aria-labelledby="markets-title">
+        <p class="eyebrow mb-4">03 / Areas of focus</p>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 id="markets-title">One global picture.<br /><em style="color:var(--sage)">Many moving parts.</em></h2>
+            <p class="section-lead">Mike’s stated experience covers short-term market movements and research across a range of financial instruments. The list is a description of areas studied, not a promise of results.</p>
+          </div>
+          <div class="col-lg-6 market-list" aria-label="Markets covered">
+            <div class="market-row"><span>Equities</span><span class="market-number">01</span></div>
+            <div class="market-row"><span>Indices</span><span class="market-number">02</span></div>
+            <div class="market-row"><span>Commodities</span><span class="market-number">03</span></div>
+            <div class="market-row"><span>Currencies</span><span class="market-number">04</span></div>
+            <div class="market-row"><span>Digital assets</span><span class="market-number">05</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles section" aria-labelledby="principles-title">
+        <div class="container">
+          <div class="row section-head">
+            <div class="col-lg-3"><p class="eyebrow">04 / Principles</p></div>
+            <div class="col-lg-9"><h2 id="principles-title">The work is human, too.</h2><p class="section-lead" style="color:#c1cbc1">Good professional relationships depend on more than information. They depend on how clearly it is shared, and how carefully it is understood.</p></div>
+          </div>
+          <div class="principle-row"><span class="principle-no">01</span><h3>Explain the why</h3><p>Make the reasoning behind a market discussion understandable, not just the conclusion.</p></div>
+          <div class="principle-row"><span class="principle-no">02</span><h3>Meet people where they are</h3><p>Recognize different levels of market experience and different individual circumstances.</p></div>
+          <div class="principle-row"><span class="principle-no">03</span><h3>Build with consistency</h3><p>Trust, communication, respect and continuity give professional relationships their foundation.</p></div>
+        </div>
+      </section>
+
+      <section class="container section" id="profile" aria-labelledby="profile-title">
+        <div class="row section-head">
+          <div class="col-lg-3"><p class="eyebrow">05 / Profile notes</p></div>
+          <div class="col-lg-9"><h2 id="profile-title">Experience, in outline.</h2><p class="section-lead">A concise snapshot of the experience, academic background and working context described in Mike’s supplied profile.</p></div>
+        </div>
+        <div class="profile-panel">
+          <div class="row g-5">
+            <div class="col-lg-6">
+              <div class="profile-group">
+                <h3>Professional practice</h3>
+                <div class="profile-line"><span>Markets involvement</span><span>15+ years</span></div>
+                <div class="profile-line"><span>Private client network</span><span>300+ clients</span></div>
+                <div class="profile-line"><span>International reach</span><span>15+ countries</span></div>
+                <div class="profile-line"><span>Analyses and setups studied</span><span>3,000+</span></div>
+                <div class="profile-line"><span>Professional base</span><span>London, UK</span></div>
+              </div>
+              <div class="profile-group">
+                <h3>Research interests</h3>
+                <div class="profile-line"><span>Trading focus</span><span>Active, short-term analysis</span></div>
+                <div class="profile-line"><span>Additional areas</span><span>Strategy · Business · Research</span></div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="profile-group">
+                <h3>Academic background*</h3>
+                <div class="profile-line"><span>University of Cambridge</span><span>PhD, as described</span></div>
+                <div class="profile-line"><span>London Business School</span><span>Two-year advanced program</span></div>
+                <div class="profile-line"><span>Study areas</span><span>Finance · Economics · Business</span></div>
+              </div>
+              <div class="profile-group">
+                <h3>Outlook</h3>
+                <div class="profile-line"><span>Based in</span><span>London</span></div>
+                <div class="profile-line"><span>Perspective</span><span>International</span></div>
+                <div class="profile-line"><span>Ongoing focus</span><span>Research &amp; development</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="claim-note mb-0">* Credentials and all experience, client-network and analysis figures on this page are claims from the supplied profile; they have not been independently verified. This page is informational and does not provide individualized financial advice.</p>
+        </div>
+      </section>
+
+      <section class="closing container" aria-labelledby="closing-title">
+        <p class="eyebrow">06 / Looking ahead</p>
+        <h2 id="closing-title">Curiosity keeps the perspective current.</h2>
+        <p>Mike continues to follow financial technology, global economics, monetary policy and new analytical approaches—bringing a learner’s mindset to a field in constant motion.</p>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+        <span>© <span id="year">2026</span> Mike Clyne</span>
+        <span>London · International markets</span>
+        <a href="#top" class="text-decoration-none">Back to top ↑</a>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
-        let balance = 5000;
-        let tradesPerDay = 2;
-        let profitPct = 1.5;
-        let allocPct = 20;
-        let isCompound = true;
-
-        const presets = [
-            {val: 5000, trades: 2},
-            {val: 10000, trades: 3},
-            {val: 20000, trades: 4}
-        ];
-
-        function formatEUR(val) {
-            return '€' + Math.round(val).toLocaleString('de-DE');
-        }
-
-        function calculateForDays(days) {
-            let current = balance;
-            const totalTrades = tradesPerDay * days;
-            
-            if (isCompound) {
-                const multiplier = 1 + (allocPct/100) * (profitPct/100);
-                current = balance * Math.pow(multiplier, totalTrades);
-            } else {
-                const posSize = balance * (allocPct / 100);
-                const profitPerTrade = posSize * (profitPct / 100);
-                current = balance + (profitPerTrade * totalTrades);
-            }
-            
-            const profit = current - balance;
-            return {
-                balance: current,
-                profit: profit,
-                pct: (profit / balance) * 100
-            };
-        }
-
-        function updateAll() {
-            document.getElementById('trades-val').textContent = tradesPerDay;
-            document.getElementById('profit-val').textContent = profitPct.toFixed(1) + '%';
-            document.getElementById('alloc-val').textContent = allocPct + '%';
-
-            const yearRes = calculateForDays(264);
-            document.getElementById('final-balance').textContent = formatEUR(yearRes.balance);
-            document.getElementById('growth-pct').textContent = '+' + yearRes.pct.toFixed(1) + '%';
-            
-            const avgDaily = yearRes.profit / 264;
-            document.getElementById('daily-profit').textContent = `Avg Daily Profit: ${formatEUR(avgDaily)}`;
-
-            document.getElementById('mode-name').textContent = isCompound ? 'COMPOUND REINVESTMENT' : 'NO REINVESTMENT (LINEAR)';
-
-            updatePeriodCards();
-        }
-
-        function updatePeriodCards() {
-            const container = document.getElementById('period-cards');
-            container.innerHTML = '';
-            
-            const periods = [
-                {label: '1 Day', days: 1},
-                {label: '1 Month', days: 22},
-                {label: '3 Months', days: 66},
-                {label: '1 Year', days: 264}
-            ];
-            
-            periods.forEach(p => {
-                const res = calculateForDays(p.days);
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-3xl p-5 md:p-6 text-center border border-transparent hover:border-emerald-200 transition-all";
-                card.innerHTML = `
-                    <div class="text-xs text-zinc-500">${p.label}</div>
-                    <div class="text-2xl font-semibold mt-3">${formatEUR(res.balance)}</div>
-                    <div class="text-emerald-600 text-sm mt-1">+${res.pct.toFixed(1)}%</div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function createPresetButtons() {
-            const container = document.getElementById('presets');
-            container.innerHTML = '';
-            
-            presets.forEach(p => {
-                const btn = document.createElement('button');
-                const isActive = balance === p.val;
-                btn.className = `px-7 md:px-10 py-4 md:py-5 text-xl md:text-2xl font-semibold rounded-3xl transition-all border-2 ${isActive ? 
-                    'border-emerald-600 bg-emerald-50 shadow-md' : 
-                    'border-zinc-200 hover:border-zinc-300'}`;
-                btn.textContent = formatEUR(p.val);
-                btn.onclick = () => {
-                    balance = p.val;
-                    tradesPerDay = p.trades;
-                    document.getElementById('trades').value = p.trades;
-                    createPresetButtons();
-                    updateAll();
-                };
-                container.appendChild(btn);
-            });
-        }
-
-        function setMode(compound) {
-            isCompound = compound;
-            const linearBtn = document.getElementById('btn-linear');
-            const compoundBtn = document.getElementById('btn-compound');
-            
-            if (compound) {
-                compoundBtn.classList.add('bg-emerald-600', 'text-white');
-                linearBtn.classList.remove('bg-emerald-600', 'text-white');
-            } else {
-                linearBtn.classList.add('bg-emerald-600', 'text-white');
-                compoundBtn.classList.remove('bg-emerald-600', 'text-white');
-            }
-            updateAll();
-        }
-
-        function initListeners() {
-            document.getElementById('trades').addEventListener('input', e => {
-                tradesPerDay = parseInt(e.target.value);
-                updateAll();
-            });
-            
-            document.getElementById('profit').addEventListener('input', e => {
-                profitPct = parseFloat(e.target.value);
-                updateAll();
-            });
-            
-            document.getElementById('alloc').addEventListener('input', e => {
-                allocPct = parseInt(e.target.value);
-                updateAll();
-            });
-        }
-
-        window.onload = () => {
-            createPresetButtons();
-            initListeners();
-            setMode(true);
-        };
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-</body>
+  </body>
 </html>
