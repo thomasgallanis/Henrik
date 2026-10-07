@@ -1,308 +1,749 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f3efe5" />
-    <meta name="description" content="Mike Clyne is a London-based financial-markets professional focused on active trading, thoughtful analysis, risk discipline and international client relationships." />
-    <meta property="og:title" content="Mike Clyne | International Financial Markets Professional" />
-    <meta property="og:description" content="A professional profile focused on active trading, thoughtful analysis and international client relationships." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" />
-    <title>Mike Clyne | International Financial Markets Professional</title>
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mike Clyne — International Financial Markets Professional, London</title>
+  <meta name="description" content="Independent thinking for complex financial markets. Mike Clyne is a London-based international financial markets professional." />
+  <meta name="theme-color" content="#0B0B0C" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --obsidian: #0B0B0C;
+      --graphite: #1B1C1E;
+      --ivory: #F3F0E9;
+      --paper: #F7F4ED;
+      --champagne: #B8A27A;
+      --stone: #77746E;
+      --ink: #161513;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--obsidian);
+      color: var(--ivory);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, blockquote {
+      font-family: "Cormorant Garamond", Times, serif;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--champagne); }
+    :focus-visible { outline: 1px solid var(--champagne); outline-offset: 3px; }
+    .kicker {
+      font-size: .6875rem; letter-spacing: .22em; text-transform: uppercase;
+      font-weight: 500; color: var(--champagne);
+    }
+    .display-serif { font-size: clamp(2.4rem, 6vw, 5.2rem); line-height: .96; }
+    .display-sm { font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.05; }
+    .lede { font-size: clamp(1.1rem, 1.4vw, 1.3rem); line-height: 1.55; color: rgba(243,240,233,.72); }
+    .site-nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      transition: background .3s ease, border-color .3s ease;
+      border-bottom: 1px solid transparent;
+    }
+    .site-nav.solid { background: rgba(11,11,12,.95); border-color: rgba(243,240,233,.1); backdrop-filter: blur(12px); }
+    .nav-link { color: rgba(243,240,233,.7) !important; font-size: .6875rem; letter-spacing: .18em; text-transform: uppercase; padding: .5rem 0 !important; }
+    .nav-link:hover, .nav-link.active { color: var(--ivory) !important; }
+    .btn-ghost {
+      border: 1px solid rgba(184,162,122,.7); color: var(--ivory); border-radius: 0;
+      letter-spacing: .18em; text-transform: uppercase; font-size: .6875rem;
+      padding: .85rem 1.4rem; background: transparent;
+    }
+    .btn-ghost:hover { background: var(--ivory); color: var(--obsidian); }
+    .btn-ink {
+      border: 1px solid rgba(22,21,19,.2); color: var(--ink); border-radius: 0;
+      letter-spacing: .18em; text-transform: uppercase; font-size: .6875rem;
+      padding: .85rem 1.4rem; background: transparent;
+    }
+    .btn-ink:hover { background: var(--ink); color: var(--ivory); }
+    .hero { min-height: 100vh; position: relative; overflow: hidden; }
+    .hero-photo { position: absolute; inset: 0; }
+    .hero-photo img { width: 100%; height: 115%; object-fit: cover; object-position: center 12%; will-change: transform; }
+    .hero-mask { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,12,.92) 0%, rgba(11,11,12,.35) 55%, rgba(11,11,12,.2) 100%); }
+    .hero-copy { position: relative; z-index: 2; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 0 4rem; }
+    .v-label { position: absolute; left: 1.5rem; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: left center; }
+    .stat { border-left: 1px solid rgba(243,240,233,.12); padding-left: 1.5rem; }
+    .page { display: none; }
+    .page.is-on { display: block; }
+    .band-ivory { background: var(--ivory); color: var(--ink); }
+    .band-paper { background: var(--paper); color: var(--ink); }
+    .band-graph { background: var(--graphite); color: var(--ivory); }
+    .band-dark { background: var(--obsidian); color: var(--ivory); }
+    .section { padding: clamp(4.5rem, 9vw, 8.5rem) 0; }
+    .rule { border: 0; height: 1px; background: rgba(184,162,122,.32); }
+    .img-arch { width: 100%; height: 100%; object-fit: cover; }
+    .parallax-band { height: 70vh; position: relative; overflow: hidden; }
+    .parallax-band img { width: 100%; height: 130%; object-fit: cover; will-change: transform; }
+    .parallax-band .overlay { position: absolute; inset: 0; background: rgba(11,11,12,.55); }
+    .parallax-band .copy { position: absolute; inset: auto 0 0 0; padding: 4rem 0; }
+    .placeholder { font-style: italic; color: var(--stone); }
+    .form-control, .form-select, textarea.form-control {
+      background: transparent; border: 0; border-bottom: 1px solid rgba(119,116,110,.35);
+      border-radius: 0; color: inherit; box-shadow: none !important;
+    }
+    .band-ivory .form-control { color: var(--ink); }
+    .form-control:focus { border-color: var(--champagne); background: transparent; color: inherit; }
+    .cookie {
+      position: fixed; inset: auto 0 0 0; z-index: 60;
+      background: rgba(11,11,12,.96); border-top: 1px solid rgba(243,240,233,.12); padding: 1.25rem;
+    }
+    footer { border-top: 1px solid rgba(243,240,233,.1); }
+    .demo { font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--champagne); }
+    .navbar-toggler { border: 0; filter: invert(1); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; animation: none !important; }
+    }
+    @media (max-width: 991px) {
+      .v-label { display: none; }
+      .hero-mask { background: linear-gradient(to top, rgba(11,11,12,.92) 20%, rgba(11,11,12,.25) 70%); }
+      .stat { border-left: 0; border-top: 1px solid rgba(243,240,233,.12); padding: 1.25rem 0 0; margin-top: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <a class="visually-hidden-focusable position-absolute m-3 bg-light text-dark p-2" href="#main">Skip to content</a>
 
-    <!-- Bootstrap 5 via CDN; no build step or additional files required. -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
+  <nav class="site-nav navbar navbar-expand-lg navbar-dark" id="siteNav">
+    <div class="container">
+      <a class="navbar-brand kicker mb-0" href="#home" data-nav>Mike Clyne</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item"><a class="nav-link" href="#about" data-nav>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#expertise" data-nav>Expertise</a></li>
+          <li class="nav-item"><a class="nav-link" href="#approach" data-nav>Approach</a></li>
+          <li class="nav-item"><a class="nav-link" href="#insights" data-nav>Insights</a></li>
+          <li class="nav-item"><a class="nav-link" href="#profile" data-nav>Professional Profile</a></li>
+          <li class="nav-item"><a class="btn btn-ghost ms-lg-3" href="#contact" data-nav>Request a Private Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <style>
-      :root {
-        --paper: #f3efe5;
-        --sand: #e9e4d7;
-        --ink: #26313b;
-        --body: #586466;
-        --teal: #244943;
-        --sage: #47716a;
-        --copper: #c47742;
-        --line: #d2ccbe;
-        --serif: "Playfair Display", Georgia, serif;
-        --sans: "DM Sans", Arial, sans-serif;
-        --mono: "DM Mono", monospace;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; scroll-padding-top: 88px; }
-      body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
-      a { color: inherit; }
-      .site-nav { background: rgba(243,239,229,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px); }
-      .brand { font-size: .9rem; font-weight: 600; letter-spacing: -.03em; text-decoration: none; }
-      .brand-mark { color: var(--copper); font: 500 .75rem var(--mono); margin-right: .55rem; }
-      .navbar-nav .nav-link { color: #354448; font-size: .82rem; }
-      .navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus { color: var(--copper); }
-      .eyebrow { color: #54706c; font: 500 .68rem var(--mono); letter-spacing: .14em; text-transform: uppercase; }
-      .hero { min-height: 650px; position: relative; overflow: hidden; }
-      .hero-copy { position: relative; z-index: 2; padding-top: 5.5rem; padding-bottom: 4.5rem; }
-      .hero h1 { margin: 1.6rem 0 1.4rem; font: 500 clamp(4.4rem, 9vw, 7.8rem)/.9 var(--serif); letter-spacing: -.065em; }
-      .hero h1 em { color: var(--sage); font-weight: 500; }
-      .hero-lead { max-width: 470px; color: var(--body); font-size: 1.05rem; line-height: 1.7; }
-      .hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2.2rem; }
-      .meta-label { display: block; margin-bottom: .45rem; }
-      .meta-value { color: #334145; font-size: .83rem; }
-      .portrait-wrap { position: relative; display: grid; min-height: 540px; place-items: center; }
-      .portrait-orb { position: absolute; width: min(430px, 90%); aspect-ratio: 1; border-radius: 50%; background: #e8dfca; }
-      .portrait-orb::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: repeating-linear-gradient(135deg, transparent 0 32px, rgba(72,108,102,.14) 33px, transparent 34px 66px); }
-      .portrait-orbit { position: absolute; width: min(480px, 100%); height: 250px; border: 1px solid #638079; border-radius: 50%; transform: rotate(-34deg); }
-      .portrait-card { position: relative; z-index: 1; width: min(230px, 56%); margin: 0; padding: 11px 11px 14px; background: #f8f5ed; box-shadow: 0 18px 45px rgba(30,44,41,.2); transform: rotate(-2deg); }
-      .portrait-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 34%; }
-      .portrait-card figcaption { padding-top: .7rem; color: #526966; font: .64rem var(--mono); letter-spacing: .08em; text-align: center; text-transform: uppercase; }
-      .hero-caption { position: absolute; right: 0; bottom: 3rem; color: #78827c; font: .65rem var(--mono); }
-      .intro-band { padding: 1.6rem 0; color: var(--paper); background: var(--teal); }
-      .intro-band .eyebrow { color: #c9a582; }
-      .intro-band p { margin: 0; font: 500 1.1rem var(--serif); }
-      .section { padding: 7rem 0; }
-      .section-head { margin-bottom: 3rem; }
-      h2 { font: 500 clamp(2.7rem, 5vw, 4rem)/1.05 var(--serif); letter-spacing: -.05em; }
-      .section-lead { max-width: 700px; margin-top: 1.2rem; color: var(--body); font-size: 1.02rem; line-height: 1.75; }
-      .story-copy p { max-width: 520px; color: #4d5a5c; font-size: .97rem; line-height: 1.9; }
-      .story-note { max-width: 500px; margin-top: 2rem; padding: 1.2rem 1.3rem; border-left: 2px solid var(--copper); color: var(--teal); font: italic 1.3rem/1.5 var(--serif); }
-      .route-card { position: relative; min-height: 300px; display: flex; justify-content: space-between; align-items: center; overflow: hidden; padding: 2rem; background: var(--sand); }
-      .route-card::before { content: ""; position: absolute; inset: 0; opacity: .42; background: linear-gradient(31deg, transparent 49.8%,#91a19a 50%,transparent 50.2%),linear-gradient(148deg, transparent 49.8%,#91a19a 50%,transparent 50.2%); background-size: 100px 88px; }
-      .route-card::after { content: ""; position: absolute; width: 140%; height: 55px; left: -20%; top: 50%; border-top: 1px solid var(--copper); border-bottom: 1px solid var(--copper); transform: rotate(-29deg); }
-      .route-stop { position: relative; z-index: 1; color: #566661; font: .65rem var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-      .route-stop:last-child { align-self: flex-end; }
-      .route-dot { display: block; width: 11px; height: 11px; margin-bottom: .5rem; border-radius: 50%; background: var(--copper); outline: 5px solid rgba(196,119,66,.15); }
-      .approach { background: var(--sand); }
-      .approach-card { height: 100%; min-height: 200px; padding: 1.7rem; border: 1px solid var(--line); transition: background .2s ease, transform .2s ease; }
-      .approach-card:hover { background: #f0ecdf; transform: translateY(-3px); }
-      .approach-card h3 { margin: 2.1rem 0 .6rem; font: 500 1.55rem var(--serif); }
-      .approach-card p { margin: 0; color: #5b6664; font-size: .85rem; line-height: 1.75; }
-      .card-num { color: #bd7848; font: .68rem var(--mono); }
-      .market-list { border-top: 1px solid var(--line); }
-      .market-row { display: flex; justify-content: space-between; padding: 1.05rem 0; border-bottom: 1px solid var(--line); color: #354448; font-size: .9rem; }
-      .market-number { color: #a4a399; font: .68rem var(--mono); }
-      .principles { color: var(--paper); background: var(--teal); }
-      .principles .eyebrow { color: #c9a582; }
-      .principle-row { display: grid; grid-template-columns: 55px 1fr 1.3fr; gap: 1.25rem; align-items: baseline; padding: 1.5rem 0; border-top: 1px solid rgba(243,239,229,.24); }
-      .principle-row:last-child { border-bottom: 1px solid rgba(243,239,229,.24); }
-      .principle-no { color: #d49b71; font: .68rem var(--mono); }
-      .principle-row h3 { margin: 0; font: 500 1.45rem var(--serif); }
-      .principle-row p { max-width: 380px; margin: 0; color: #c1cbc1; font-size: .85rem; line-height: 1.7; }
-      .profile-panel { padding: 2.2rem; background: var(--sand); }
-      .profile-group { margin-bottom: 2.6rem; border-top: 1px solid #c7c1b5; padding-top: 1rem; }
-      .profile-group h3 { margin-bottom: 1rem; color: #54706c; font: .68rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-      .profile-line { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid rgba(54,66,64,.11); font-size: .82rem; }
-      .profile-line span:first-child { color: #68716e; }
-      .profile-line span:last-child { color: #344346; text-align: right; }
-      .claim-note { max-width: 760px; padding-left: 1rem; border-left: 1px solid var(--copper); color: #777f79; font-size: .72rem; line-height: 1.7; }
-      .closing { padding: 7rem 0; text-align: center; }
-      .closing h2 { max-width: 850px; margin: 1.3rem auto; font-size: clamp(3rem, 7vw, 5.5rem); }
-      .closing p { max-width: 540px; margin: 0 auto; color: #66716e; font-size: .9rem; line-height: 1.8; }
-      footer { padding: 1.2rem 0; border-top: 1px solid rgba(44,55,54,.15); color: #78817d; font: .65rem var(--mono); letter-spacing: .04em; }
-      footer a { color: #54706c; }
-      .disclaimer { margin-top: 1rem; font: .65rem/1.7 var(--sans); letter-spacing: 0; }
-      @media (max-width: 767.98px) {
-        .hero { min-height: auto; }
-        .hero-copy { padding-top: 4rem; padding-bottom: 2rem; }
-        .portrait-wrap { min-height: 350px; margin-top: -1rem; }
-        .portrait-card { width: 185px; }
-        .hero-caption { bottom: 1rem; }
-        .section { padding: 4.5rem 0; }
-        .principle-row { grid-template-columns: 35px 1fr; gap: .7rem; }
-        .principle-row p { grid-column: 2; }
-        .profile-panel { padding: 1.4rem; }
-        .profile-line { font-size: .74rem; }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-      }
-    </style>
-  </head>
-  <body>
-    <a class="visually-hidden-focusable position-absolute top-0 start-0 p-3 bg-dark text-white" href="#main">Skip to content</a>
-    <nav class="navbar navbar-expand-md sticky-top site-nav" aria-label="Main navigation">
-      <div class="container">
-        <a class="brand" href="#top" aria-label="Mike Clyne, return to top"><span class="brand-mark">MC /</span>MIKE CLYNE</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="siteNavigation">
-          <ul class="navbar-nav gap-md-4">
-            <li class="nav-item"><a class="nav-link" href="#perspective">Perspective</a></li>
-            <li class="nav-item"><a class="nav-link" href="#method">Method</a></li>
-            <li class="nav-item"><a class="nav-link" href="#markets">Markets</a></li>
-            <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
+  <main id="main">
+    <!-- HOME -->
+    <div class="page is-on" data-page="home">
+      <section class="hero">
+        <p class="v-label kicker">London · United Kingdom</p>
+        <div class="hero-photo" data-parallax="0.18">
+          <img src="images/mike-clyne.jpg" alt="Portrait of Mike Clyne, international financial markets professional based in London" />
+        </div>
+        <div class="hero-mask"></div>
+        <div class="container hero-copy">
+          <div class="col-lg-7">
+            <p class="kicker d-lg-none mb-4">London · United Kingdom</p>
+            <h1 class="display-serif">Independent thinking for complex financial markets.</h1>
+            <p class="lede mt-4 col-lg-9">Mike Clyne is an international financial markets professional based in London, specialising in active market analysis, day trading, financial strategy and long-term professional relationships with private clients.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 mt-5">
+              <a class="btn btn-ghost" href="#contact" data-nav>Request a Private Consultation</a>
+              <a class="btn btn-ghost" href="#profile" data-nav>Explore Professional Profile</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-graph py-5">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">15+</div><div class="kicker mt-2">Years in financial markets</div></div></div>
+            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">300+</div><div class="kicker mt-2">Private clients</div></div></div>
+            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">15+</div><div class="kicker mt-2">Countries</div></div></div>
+            <div class="col-6 col-lg-3"><div class="stat"><div class="display-sm">3,000+</div><div class="kicker mt-2">Market analyses</div></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-ivory section">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5"><img class="img-arch" src="images/stone-facade.jpg" alt="Portland stone architectural detail in the City of London" /></div>
+            <div class="col-lg-7">
+              <p class="kicker">About</p>
+              <h2 class="display-sm mt-3">A global perspective shaped by markets.</h2>
+              <p class="mt-4">Born in Germany and raised in Canada, Mike Clyne developed an international perspective from an early age. His professional career later brought him into the United Kingdom, where London became the centre of his professional activities across global financial markets.</p>
+              <p>Today, his work combines active market analysis, financial strategy, research and long-term professional relationships with clients internationally.</p>
+              <a class="kicker d-inline-block mt-3" href="#about" data-nav>Discover Mike’s Story →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-paper section">
+        <div class="container">
+          <p class="kicker">International journey</p>
+          <h2 class="display-sm mt-3 col-lg-8">Germany to London, and a professional network beyond.</h2>
+          <div class="row mt-5 g-4">
+            <div class="col-md"><p class="kicker">01</p><h3 class="mt-3">Germany</h3><p class="text-secondary">Born in Germany, where an international perspective began.</p></div>
+            <div class="col-md"><p class="kicker">02</p><h3 class="mt-3">Canada</h3><p class="text-secondary">Raised in Canada, developing across cultures and geographies.</p></div>
+            <div class="col-md"><p class="kicker">03</p><h3 class="mt-3">United Kingdom</h3><p class="text-secondary">Professional development continued in the United Kingdom.</p></div>
+            <div class="col-md"><p class="kicker">04</p><h3 class="mt-3">London</h3><p class="text-secondary">London became the centre of his professional activities.</p></div>
+            <div class="col-md"><p class="kicker">05</p><h3 class="mt-3">International client network</h3><p class="text-secondary">Professional relationships across 15+ countries and 300+ private clients.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-ivory section">
+        <div class="container">
+          <p class="kicker">Academic foundation</p>
+          <h2 class="display-sm mt-3 col-lg-9">Education provides the foundation. Experience provides perspective.</h2>
+          <div class="row mt-5 g-5">
+            <div class="col-lg-6">
+              <p class="kicker">University</p>
+              <h3 class="display-sm mt-3">University of Cambridge</h3>
+              <p class="mt-3">PhD</p>
+              <p class="placeholder">Subject: [INSERT VERIFIED INFORMATION]</p>
+            </div>
+            <div class="col-lg-6">
+              <p class="kicker">Further education</p>
+              <h3 class="display-sm mt-3">London Business School</h3>
+              <p class="mt-3">Two-Year Advanced Programme</p>
+              <p class="placeholder">Programme title: [INSERT VERIFIED INFORMATION]</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-paper section">
+        <div class="container">
+          <p class="kicker">Expertise</p>
+          <h2 class="display-sm mt-3">Understanding markets from multiple perspectives.</h2>
+          <div class="mt-5">
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><div class="col-md-4"><h3>Financial markets</h3></div><div class="col-md-6">Broad experience studying global financial markets.</div></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><div class="col-md-4"><h3>Day trading & short-term analysis</h3></div><div class="col-md-6">Focus on short-term market movements, timing, liquidity, volatility, technical structures and market sentiment.</div></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><div class="col-md-4"><h3>Market research</h3></div><div class="col-md-6">Independent research and continuous study of market behaviour, economic developments and changing conditions.</div></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><div class="col-md-4"><h3>Financial strategy</h3></div><div class="col-md-6">Structured thinking around market environments, decision-making and risk.</div></div>
+            <div class="row py-4 border-top border-bottom"><div class="col-md-2 kicker">05</div><div class="col-md-4"><h3>Business & strategic perspective</h3></div><div class="col-md-6">Broader thinking around business development, strategic planning, leadership and professional relationships.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-graph section">
+        <div class="container">
+          <p class="kicker">Market coverage</p>
+          <h2 class="display-sm mt-3 col-lg-8">Experience across asset classes — without implied hierarchy.</h2>
+          <div class="row g-4 mt-4">
+            <div class="col-md"><h3>Equities</h3></div>
+            <div class="col-md"><h3>Indices</h3></div>
+            <div class="col-md"><h3>Commodities</h3></div>
+            <div class="col-md"><h3>Currencies</h3></div>
+            <div class="col-md"><h3>Digital Assets</h3></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-dark section">
+        <div class="container">
+          <p class="kicker">Methodology</p>
+          <h2 class="display-sm mt-3">Analysis before action.</h2>
+          <p class="lede col-lg-8 mt-3">The sequence below describes a working method. It is not a system that guarantees successful trades.</p>
+          <div class="mt-5">
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><h3 class="col-md-3">Understand</h3><p class="col-md-7 mb-0">Establish context: the market, the timeframe, the prevailing conditions, and the question being asked.</p></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><h3 class="col-md-3">Analyse</h3><p class="col-md-7 mb-0">Examine structure, price, volume, volatility and the wider fundamental and sentiment picture as analytical inputs.</p></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><h3 class="col-md-3">Assess risk</h3><p class="col-md-7 mb-0">Consider exposure, downside, position size and the conditions under which the idea would be wrong.</p></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><h3 class="col-md-3">Act with discipline</h3><p class="col-md-7 mb-0">If action is taken, it is taken within predefined bounds — not in reaction to noise.</p></div>
+            <div class="row py-4 border-top"><div class="col-md-2 kicker">05</div><h3 class="col-md-3">Review & adapt</h3><p class="col-md-7 mb-0">After the fact, review what the market actually did. Adapt the process.</p></div>
+          </div>
+          <p class="mt-4 small" style="color:var(--stone)">Analytical inputs — not guarantees: market structure, price action, trading volume, volatility, technical indicators, fundamental developments, economic announcements, market sentiment, liquidity, potential catalysts.</p>
+        </div>
+      </section>
+
+      <section class="band-ivory section">
+        <div class="container">
+          <p class="kicker">Risk</p>
+          <h2 class="display-sm mt-3">Opportunity begins with understanding risk.</h2>
+          <p class="col-lg-8 mt-3">Responsible market participation requires understanding both potential opportunity and potential downside. Markets are uncertain. Volatility is a feature of them.</p>
+          <div class="row g-4 mt-4">
+            <div class="col-md-6"><h3>Position sizing</h3><p>The size of a position is a risk decision before it is a market decision.</p></div>
+            <div class="col-md-6"><h3>Exposure</h3><p>Concentration, correlation and overall exposure are examined as part of any considered view.</p></div>
+            <div class="col-md-6"><h3>Volatility</h3><p>Volatility can expand without notice. Analysis that ignores it is incomplete.</p></div>
+            <div class="col-md-6"><h3>Entry planning</h3><p>If a market is engaged, the terms of engagement should be defined in advance.</p></div>
+            <div class="col-md-6"><h3>Exit planning</h3><p>Knowing how a view would be concluded is part of taking it seriously.</p></div>
+            <div class="col-md-6"><h3>Discipline</h3><p>Process exists to constrain improvisation when conditions become emotionally loud.</p></div>
+            <div class="col-md-6"><h3>Scenario analysis</h3><p>More than one path is possible. Preparing for alternative outcomes is a form of respect for uncertainty.</p></div>
+            <div class="col-md-6"><h3>Changing market conditions</h3><p>A reading that was sound yesterday may be incomplete today. Review is continuous.</p></div>
+          </div>
+          <p class="small mt-4">Financial markets involve risk and past performance is not indicative of future results.</p>
+        </div>
+      </section>
+
+      <section class="band-graph section">
+        <div class="container">
+          <p class="kicker">Private clients</p>
+          <h2 class="display-sm mt-3">Professional relationships without borders.</h2>
+          <p class="col-lg-8 mt-3">The practice works with 300+ private clients across 15+ countries. Discretion is treated as a professional obligation. Client names are never used as social proof.</p>
+        </div>
+      </section>
+
+      <section class="band-dark section">
+        <div class="container">
+          <p class="kicker">Professional philosophy</p>
+          <h2 class="display-sm mt-3">Five principles that govern the work.</h2>
+          <div class="row py-4 border-top mt-4"><div class="col-md-2 display-sm" style="color:var(--champagne)">01</div><h3 class="col-md-4">Learn continuously</h3><p class="col-md-6">The financial markets never stop changing, and neither should the professional studying them.</p></div>
+          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">02</div><h3 class="col-md-4">Analyse before acting</h3><p class="col-md-6">Every potential opportunity deserves careful examination before a decision is made.</p></div>
+          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">03</div><h3 class="col-md-4">Respect risk</h3><p class="col-md-6">Understanding potential downside is an essential part of responsible market participation.</p></div>
+          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">04</div><h3 class="col-md-4">Communicate clearly</h3><p class="col-md-6">Financial knowledge has little value if it cannot be communicated effectively.</p></div>
+          <div class="row py-4 border-top"><div class="col-md-2 display-sm" style="color:var(--champagne)">05</div><h3 class="col-md-4">Build relationships</h3><p class="col-md-6">Long-term professional success is built through trust, consistency and respect.</p></div>
+        </div>
+      </section>
+
+      <section class="parallax-band">
+        <img src="images/london-skyline.jpg" alt="City of London skyline at dusk" data-parallax="0.28" />
+        <div class="overlay"></div>
+        <div class="copy">
+          <div class="container">
+            <p class="kicker">London</p>
+            <h2 class="display-sm mt-3 col-lg-8">Based in London. Connected to global markets.</h2>
+            <p class="lede col-lg-7 mt-3">London provides the professional environment from which Mike follows international market developments, conducts research, communicates with clients and develops his financial-market activities.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-ivory section">
+        <div class="container">
+          <p class="kicker">Insights</p>
+          <h2 class="display-sm mt-3">A quiet journal of market thinking.</h2>
+          <p class="col-lg-8 mt-3">Demonstration articles only — replace before publication. These notes are not live research.</p>
+          <div class="row g-4 mt-4">
+            <div class="col-lg-4 border-top pt-4">
+              <p class="kicker">Market Analysis</p>
+              <h3 class="mt-3"><a href="#insight-structure" data-nav>Reading market structure with discipline</a></h3>
+              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+            </div>
+            <div class="col-lg-4 border-top pt-4">
+              <p class="kicker">Financial Strategy</p>
+              <h3 class="mt-3"><a href="#insight-risk" data-nav>Risk is the first question</a></h3>
+              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+            </div>
+            <div class="col-lg-4 border-top pt-4">
+              <p class="kicker">Global Markets</p>
+              <h3 class="mt-3"><a href="#insight-global" data-nav>An international reading of global markets</a></h3>
+              <p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band-dark section">
+        <div class="container">
+          <blockquote class="display-sm col-lg-10 fst-italic">“The markets reward preparation, discipline, and the willingness to keep learning. My objective has never been simply to follow the market. It has been to understand it, adapt to it, and continually improve the way I approach it.”</blockquote>
+          <p class="kicker mt-4">Mike Clyne</p>
+        </div>
+      </section>
+
+      <section class="band-paper section">
+        <div class="container d-lg-flex justify-content-between align-items-end">
+          <div>
+            <p class="kicker">Consultation</p>
+            <h2 class="display-sm mt-3">Start a private conversation.</h2>
+            <p class="col-lg-8 mt-3">For selected private clients, professional introductions and enquiries relating to financial markets, strategy and advisory services.</p>
+          </div>
+          <a class="btn btn-ink mt-4 mt-lg-0" href="#contact" data-nav>Request a Private Consultation</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" data-page="about">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">About</p>
+          <h1 class="display-serif mt-3 col-lg-10">A global perspective shaped by markets.</h1>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-5"><img class="img-arch" src="images/mike-clyne.jpg" alt="Mike Clyne" /></div>
+            <div class="col-lg-7">
+              <p>Mike Clyne was born in Germany on 2 February 1989 and raised in Canada. That early movement between countries formed a practical international outlook — one that later became central to his professional life in financial markets.</p>
+              <p>He now works from London, United Kingdom, as an international financial markets professional. His work is concentrated on active financial-market analysis, day trading, short-term market analysis, financial strategy, market research, and broader business and strategic thinking.</p>
+              <p>Across 15+ years of studying, analysing and participating in global financial markets, he has built experience in equities, indices, commodities, currencies and digital assets. More than 3,000 individual market analyses and trading setups have been undertaken as part of an ongoing practice of observation, structure and review.</p>
+              <p>His professional relationships extend to 300+ private clients across 15+ countries. The emphasis is on discretion, clear communication and long-term professional relationships.</p>
+              <p>He holds a PhD from the University of Cambridge and completed a two-year advanced programme at London Business School. The working philosophy is simple: learn continuously, analyse before acting, respect risk, communicate clearly, and build long-term professional relationships.</p>
+              <a class="btn btn-ink mt-3" href="#profile" data-nav>Explore professional profile</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- EXPERTISE -->
+    <div class="page" data-page="expertise">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">Expertise</p>
+          <h1 class="display-serif mt-3 col-lg-10">Understanding markets from multiple perspectives.</h1>
+          <p class="lede col-lg-8 mt-4">Areas of professional focus — not claims of superior performance in any market.</p>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <div class="row py-4 border-top"><div class="col-md-2 kicker">01</div><div class="col-md-4"><h2>Financial markets</h2></div><div class="col-md-6">Fifteen or more years spent studying, analysing and participating in global financial markets, with an emphasis on structure, context and independent observation.</div></div>
+          <div class="row py-4 border-top"><div class="col-md-2 kicker">02</div><div class="col-md-4"><h2>Day trading & short-term analysis</h2></div><div class="col-md-6">Primary specialisation. Attention is given to short-term movements, timing, liquidity, volatility, technical structures and market sentiment. These are analytical inputs. They do not make outcomes predictable.</div></div>
+          <div class="row py-4 border-top"><div class="col-md-2 kicker">03</div><div class="col-md-4"><h2>Market research</h2></div><div class="col-md-6">Independent research underpins the practice. More than 3,000 individual market analyses and trading setups form part of a continuous study of market behaviour.</div></div>
+          <div class="row py-4 border-top"><div class="col-md-2 kicker">04</div><div class="col-md-4"><h2>Financial strategy</h2></div><div class="col-md-6">Structured thinking around market environments, decision-making and risk. Not a formula for results.</div></div>
+          <div class="row py-4 border-top"><div class="col-md-2 kicker">05</div><div class="col-md-4"><h2>Business & strategic perspective</h2></div><div class="col-md-6">Broader thinking around business development, strategic planning, leadership and professional relationships.</div></div>
+          <p class="small mt-5">Equities · Indices · Commodities · Currencies · Digital Assets. Financial markets involve risk and past performance is not indicative of future results.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- APPROACH -->
+    <div class="page" data-page="approach">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">Approach</p>
+          <h1 class="display-serif mt-3">Analysis before action.</h1>
+          <p class="lede col-lg-8 mt-4">A working method for examining markets with discipline. It is not a system that guarantees successful trades.</p>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <h2 class="display-sm">The method</h2>
+          <ol class="mt-4">
+            <li class="mb-3"><strong>Understand.</strong> Establish context.</li>
+            <li class="mb-3"><strong>Analyse.</strong> Examine structure, price, volume, volatility and the wider picture as inputs.</li>
+            <li class="mb-3"><strong>Assess risk.</strong> Consider exposure, downside and invalidation.</li>
+            <li class="mb-3"><strong>Act with discipline.</strong> If action is taken, it is taken within predefined bounds.</li>
+            <li class="mb-3"><strong>Review & adapt.</strong> Markets change; so must the study of them.</li>
+          </ol>
+          <h2 class="display-sm mt-5">Opportunity begins with understanding risk.</h2>
+          <p class="mt-3">Responsible market participation requires understanding both potential opportunity and potential downside. Position sizing, exposure, volatility, entry and exit planning, discipline, scenario analysis and changing market conditions are all part of that examination.</p>
+          <p class="small">Financial markets involve risk and past performance is not indicative of future results.</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- INSIGHTS -->
+    <div class="page" data-page="insights">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">Insights</p>
+          <h1 class="display-serif mt-3">A quiet journal of market thinking.</h1>
+          <p class="lede col-lg-8 mt-4">Demonstration articles only, prepared to show the editorial layout. They are not published research.</p>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <article class="mb-5 pb-4 border-bottom">
+            <p class="kicker">Market Analysis</p>
+            <h2 class="mt-2"><a href="#insight-structure" data-nav>Reading market structure with discipline</a></h2>
+            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+          </article>
+          <article class="mb-5 pb-4 border-bottom">
+            <p class="kicker">Financial Strategy</p>
+            <h2 class="mt-2"><a href="#insight-risk" data-nav>Risk is the first question</a></h2>
+            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+          </article>
+          <article>
+            <p class="kicker">Global Markets</p>
+            <h2 class="mt-2"><a href="#insight-global" data-nav>An international reading of global markets</a></h2>
+            <p class="demo">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="page" data-page="insight-structure">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Market Analysis</p><h1 class="display-serif mt-3">Reading market structure with discipline</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research, not a market recommendation, and not a record of any actual analysis undertaken for clients.</p>
+        <p>Short-term market analysis begins with structure. Price does not move in a vacuum: it moves through ranges, through areas of prior interest, and through conditions of greater or lesser liquidity.</p>
+        <p>None of this predicts what happens next. Structure is an input. Financial markets involve risk and past performance is not indicative of future results.</p>
+      </div></section>
+    </div>
+    <div class="page" data-page="insight-risk">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Financial Strategy</p><h1 class="display-serif mt-3">Risk is the first question</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research and should be replaced before publication.</p>
+        <p>It is tempting to begin with opportunity. Markets, however, settle accounts in the opposite order: exposure is real before outcome is known.</p>
+        <p>Financial markets involve risk and past performance is not indicative of future results.</p>
+      </div></section>
+    </div>
+    <div class="page" data-page="insight-global">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Global Markets</p><h1 class="display-serif mt-3">An international reading of global markets</h1><p class="demo mt-3">DEMO CONTENT — REPLACE BEFORE PUBLICATION</p></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>This article is demonstration content prepared to show the editorial layout of the journal. It is not published research and should be replaced before publication.</p>
+        <p>Global markets do not open as a single room. They open as a sequence of sessions, currencies and institutional calendars. London sits at a useful junction in that sequence.</p>
+        <p>Financial markets involve risk and past performance is not indicative of future results.</p>
+      </div></section>
+    </div>
+
+    <!-- PROFILE -->
+    <div class="page" data-page="profile">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">Professional profile</p>
+          <h1 class="display-serif mt-3">Mike Clyne</h1>
+          <p class="lede mt-3">International Financial Markets Professional</p>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-4"><img class="img-arch" src="images/mike-clyne.jpg" alt="Editorial portrait of Mike Clyne" /></div>
+            <div class="col-lg-8">
+              <dl class="row">
+                <dt class="col-sm-4 kicker">Born</dt><dd class="col-sm-8">2 February 1989</dd>
+                <dt class="col-sm-4 kicker">Birthplace</dt><dd class="col-sm-8">Germany</dd>
+                <dt class="col-sm-4 kicker">Raised</dt><dd class="col-sm-8">Canada</dd>
+                <dt class="col-sm-4 kicker">Current professional base</dt><dd class="col-sm-8">London, United Kingdom</dd>
+                <dt class="col-sm-4 kicker">Market experience</dt><dd class="col-sm-8">15+ years</dd>
+                <dt class="col-sm-4 kicker">Private clients</dt><dd class="col-sm-8">300+</dd>
+                <dt class="col-sm-4 kicker">International client network</dt><dd class="col-sm-8">15+ countries</dd>
+                <dt class="col-sm-4 kicker">Market analyses</dt><dd class="col-sm-8">3,000+</dd>
+                <dt class="col-sm-4 kicker">Primary specialisation</dt><dd class="col-sm-8">Day Trading & Short-Term Market Analysis</dd>
+                <dt class="col-sm-4 kicker">Additional expertise</dt><dd class="col-sm-8">Finance, Business Management, Market Research & Strategy</dd>
+                <dt class="col-sm-4 kicker">Academic qualification</dt><dd class="col-sm-8">PhD, University of Cambridge</dd>
+                <dt class="col-sm-4 kicker">Further education</dt><dd class="col-sm-8">London Business School — Two-Year Advanced Programme</dd>
+                <dt class="col-sm-4 kicker">Core markets</dt><dd class="col-sm-8">Equities, Indices, Commodities, Currencies, Digital Assets</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="page" data-page="contact">
+      <header class="section" style="padding-top:8rem">
+        <div class="container">
+          <p class="kicker">Contact</p>
+          <h1 class="display-serif mt-3">Start a private conversation.</h1>
+          <p class="lede col-lg-8 mt-4">For selected private clients, professional introductions and enquiries relating to financial markets, strategy and advisory services.</p>
+        </div>
+      </header>
+      <section class="band-ivory section">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-7">
+              <form id="consultForm" novalidate>
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label class="kicker" for="name">Name</label>
+                    <input class="form-control mt-2" id="name" name="name" required minlength="2" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="kicker" for="email">Email</label>
+                    <input class="form-control mt-2" id="email" name="email" type="email" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="kicker" for="country">Country</label>
+                    <input class="form-control mt-2" id="country" name="country" required />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="kicker" for="phone">Telephone (optional)</label>
+                    <input class="form-control mt-2" id="phone" name="phone" type="tel" />
+                  </div>
+                  <div class="col-12">
+                    <label class="kicker" for="message">Message</label>
+                    <textarea class="form-control mt-2" id="message" name="message" rows="6" required minlength="20"></textarea>
+                  </div>
+                </div>
+                <div class="visually-hidden" aria-hidden="true">
+                  <label>Company website <input name="companyWebsite" tabindex="-1" autocomplete="off" /></label>
+                </div>
+                <p class="small mt-4">By sending this form you agree that the details provided may be used to consider and respond to your enquiry. Please do not include sensitive financial account information. See the <a href="#privacy" data-nav>Privacy Policy</a>.</p>
+                <p class="small text-danger" id="formError" hidden></p>
+                <button class="btn btn-ink mt-2" type="submit">Request a private consultation</button>
+              </form>
+              <div id="formSuccess" hidden class="border p-4">
+                <p class="kicker">Enquiry recorded</p>
+                <h2 class="mt-3">Thank you. The message has been received.</h2>
+                <p class="mt-3">Direct email delivery is not yet connected. This form is operating in a professional placeholder mode until a verified correspondence channel is configured. [INSERT VERIFIED INFORMATION]</p>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <img class="img-arch mb-4" src="images/private-office.jpg" alt="Quiet private office interior" />
+              <p class="kicker">Location</p>
+              <p>London, United Kingdom</p>
+              <p class="placeholder">Correspondence channels: [INSERT VERIFIED INFORMATION]</p>
+              <p class="small">Financial markets involve risk and past performance is not indicative of future results.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- LEGAL -->
+    <div class="page" data-page="privacy">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Privacy Policy</h1></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p class="placeholder">This page is a professional placeholder pending verified legal review. It is not legal advice.</p>
+        <h2 class="mt-5">Information that may be collected</h2>
+        <p>If you use the consultation form, you may provide a name, email address, country, telephone number and a message. A cookie preference may also be stored in your browser.</p>
+        <h2 class="mt-5">Contact for privacy enquiries</h2>
+        <p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+      </div></section>
+    </div>
+    <div class="page" data-page="cookies">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Cookie Policy</h1></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>Essential preferences (including cookie consent itself) may be stored locally. Optional analytics are off unless you choose to allow them. Important pages and the consultation form remain available regardless of analytics consent.</p>
+        <button class="btn btn-ink mt-4" type="button" id="resetCookies">Reset cookie preference</button>
+      </div></section>
+    </div>
+    <div class="page" data-page="terms">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Legal</p><h1 class="display-serif mt-3">Terms of Use</h1></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p class="placeholder">These terms will govern use of this website once an operating legal entity is confirmed. [INSERT VERIFIED LEGAL ENTITY]</p>
+        <p>Content on this website is general professional information. It is not personalised advice, not an invitation to deal, and not an offer of regulated financial services. Financial markets involve risk and past performance is not indicative of future results.</p>
+      </div></section>
+    </div>
+    <div class="page" data-page="regulatory">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Regulatory information</p><h1 class="display-serif mt-3">Regulatory information</h1></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>The fields below are placeholders pending independent verification. Until then, nothing on this website should be read as a statement of FCA authorisation or regulated status.</p>
+        <dl class="mt-4">
+          <dt class="kicker">Legal entity</dt><dd class="placeholder mb-4">[INSERT VERIFIED LEGAL ENTITY]</dd>
+          <dt class="kicker">Regulatory status</dt><dd class="placeholder mb-4">[INSERT VERIFIED STATUS]</dd>
+          <dt class="kicker">FCA Firm Reference Number</dt><dd class="placeholder mb-4">[INSERT VERIFIED FRN]</dd>
+          <dt class="kicker">Permitted activities</dt><dd class="placeholder mb-4">[INSERT VERIFIED ACTIVITIES]</dd>
+          <dt class="kicker">Principal / Appointed Representative</dt><dd class="placeholder mb-4">[INSERT IF APPLICABLE]</dd>
+          <dt class="kicker">Complaints information</dt><dd class="placeholder mb-4">[INSERT VERIFIED COMPLAINTS INFORMATION]</dd>
+        </dl>
+      </div></section>
+    </div>
+    <div class="page" data-page="complaints">
+      <header class="section" style="padding-top:8rem"><div class="container"><p class="kicker">Complaints</p><h1 class="display-serif mt-3">Complaints</h1></div></header>
+      <section class="band-ivory section"><div class="container col-lg-8">
+        <p>This page is a professional structure awaiting verified complaints information. No acknowledgement periods, ombudsman routes, or legal procedures are stated here because they have not been supplied.</p>
+        <h2 class="mt-4">Who to contact</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+        <h2 class="mt-4">How to submit a complaint</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+        <h2 class="mt-4">Expected acknowledgement</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+        <h2 class="mt-4">Escalation procedure</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+        <h2 class="mt-4">Relevant regulatory information</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+        <h2 class="mt-4">Final-response information</h2><p class="placeholder">[INSERT VERIFIED INFORMATION]</p>
+      </div></section>
+    </div>
+  </main>
+
+  <footer class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <p class="kicker">Mike Clyne</p>
+          <p class="mt-3">International Financial Markets Professional</p>
+          <p class="small" style="color:var(--stone)">London, United Kingdom</p>
+        </div>
+        <div class="col-lg-3">
+          <p class="kicker">Navigate</p>
+          <ul class="list-unstyled mt-3">
+            <li><a href="#about" data-nav>About</a></li>
+            <li><a href="#expertise" data-nav>Expertise</a></li>
+            <li><a href="#approach" data-nav>Approach</a></li>
+            <li><a href="#insights" data-nav>Insights</a></li>
+            <li><a href="#profile" data-nav>Professional Profile</a></li>
+            <li><a href="#contact" data-nav>Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <p class="kicker">Legal</p>
+          <ul class="list-unstyled mt-3">
+            <li><a href="#privacy" data-nav>Privacy Policy</a></li>
+            <li><a href="#cookies" data-nav>Cookie Policy</a></li>
+            <li><a href="#terms" data-nav>Terms</a></li>
+            <li><a href="#regulatory" data-nav>Regulatory Information</a></li>
+            <li><a href="#complaints" data-nav>Complaints</a></li>
           </ul>
         </div>
       </div>
-    </nav>
-
-    <main id="main">
-      <section class="container hero" id="top" aria-labelledby="hero-title">
-        <div class="row align-items-center">
-          <div class="col-md-6 hero-copy">
-            <p class="eyebrow mb-0">International markets · London</p>
-            <h1 id="hero-title">Mike<br /><em>Clyne.</em></h1>
-            <p class="hero-lead">A financial-markets professional focused on active trading, thoughtful analysis and the long view of client relationships.</p>
-            <div class="hero-meta">
-              <div><span class="eyebrow meta-label">At work</span><span class="meta-value">Analysis · Risk · Relationships</span></div>
-              <div><span class="eyebrow meta-label">Based in</span><span class="meta-value">London, United Kingdom</span></div>
-            </div>
-            <a class="d-inline-flex align-items-center gap-3 mt-5 small text-decoration-none text-uppercase" style="font: .67rem var(--mono); letter-spacing: .12em;" href="#perspective"><span style="display:inline-block;width:34px;height:1px;background:var(--copper)"></span>Explore the profile</a>
-          </div>
-          <div class="col-md-6">
-            <div class="portrait-wrap" aria-label="Portrait of Mike Clyne">
-              <div class="portrait-orb" aria-hidden="true"></div>
-              <div class="portrait-orbit" aria-hidden="true"></div>
-              <figure class="portrait-card">
-                <img src="https://i.ibb.co/S41Y9Ws2/passport-size-photo-prompt-for-girls.jpg" alt="Portrait of Mike Clyne" />
-                <figcaption>Mike Clyne · London</figcaption>
-              </figure>
-              <span class="hero-caption">51°30′N &nbsp; / &nbsp; International markets</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="intro-band">
-        <div class="container d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-2">
-          <span class="eyebrow">A working perspective</span>
-          <p>Clear thinking, considered action, relationships built over time.</p>
-        </div>
+      <hr class="rule my-4" />
+      <div class="d-lg-flex justify-content-between small" style="color:var(--stone)">
+        <p class="col-lg-7">Financial markets involve risk and past performance is not indicative of future results.</p>
+        <p>© 2026 Mike Clyne. All rights reserved.</p>
       </div>
+    </div>
+  </footer>
 
-      <section class="container section" id="perspective" aria-labelledby="perspective-title">
-        <div class="row section-head">
-          <div class="col-lg-3"><p class="eyebrow">01 / Perspective</p></div>
-          <div class="col-lg-9">
-            <h2 id="perspective-title">A career shaped<br />by a wider view.</h2>
-            <p class="section-lead">Mike’s path spans Germany, Canada and the United Kingdom. That international background informs how he approaches global markets: as connected systems, understood through context rather than in isolation.</p>
-          </div>
-        </div>
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6 story-copy">
-            <p>Raised in Canada after being born in Germany, Mike developed an early interest in business, economics, technology and the forces that move markets. What began as curiosity grew into academic study and more than 15 years of market involvement, according to his profile.</p>
-            <p>Today, he is professionally based in London. From there, he follows international developments, conducts research and works with a client network described as spanning more than 15 countries.</p>
-            <blockquote class="story-note">“The markets reward preparation, discipline, and the willingness to keep learning.”</blockquote>
-          </div>
-          <div class="col-lg-6">
-            <div class="route-card" role="img" aria-label="A route from Germany through Canada to London">
-              <div class="route-stop"><span class="route-dot"></span>Germany</div>
-              <div class="route-stop"><span class="route-dot"></span>Canada</div>
-              <div class="route-stop"><span class="route-dot"></span>London</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="approach section" id="method" aria-labelledby="method-title">
-        <div class="container">
-          <div class="row section-head">
-            <div class="col-lg-3"><p class="eyebrow">02 / Method</p></div>
-            <div class="col-lg-9">
-              <h2 id="method-title">Process before impulse.</h2>
-              <p class="section-lead">Active trading calls for attention to what is happening—and discipline about what could happen next. Mike describes his approach as structured, multi-factor analysis, with risk considered throughout.</p>
-            </div>
-          </div>
-          <div class="row g-3">
-            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">01 / Observe</span><h3>Read the conditions</h3><p>Market structure, price action, volume, volatility and liquidity help frame the environment.</p></article></div>
-            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">02 / Context</span><h3>Connect the signals</h3><p>Technical readings sit alongside economic developments, sentiment and potential catalysts.</p></article></div>
-            <div class="col-md-6 col-lg-4"><article class="approach-card"><span class="card-num">03 / Plan</span><h3>Define the risk</h3><p>Position sizing, exposure and entry and exit planning are part of considering a trade.</p></article></div>
-            <div class="col-md-6 col-lg-6"><article class="approach-card"><span class="card-num">04 / Adapt</span><h3>Stay with the process</h3><p>When conditions shift, reassessment matters more than reacting emotionally to each move.</p></article></div>
-            <div class="col-md-6 col-lg-6"><article class="approach-card"><span class="card-num">05 / Learn</span><h3>Keep refining</h3><p>Research and continued learning are central in markets that never stand still.</p></article></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="container section" id="markets" aria-labelledby="markets-title">
-        <p class="eyebrow mb-4">03 / Areas of focus</p>
-        <div class="row g-5 align-items-center">
-          <div class="col-lg-6">
-            <h2 id="markets-title">One global picture.<br /><em style="color:var(--sage)">Many moving parts.</em></h2>
-            <p class="section-lead">Mike’s stated experience covers short-term market movements and research across a range of financial instruments. The list is a description of areas studied, not a promise of results.</p>
-          </div>
-          <div class="col-lg-6 market-list" aria-label="Markets covered">
-            <div class="market-row"><span>Equities</span><span class="market-number">01</span></div>
-            <div class="market-row"><span>Indices</span><span class="market-number">02</span></div>
-            <div class="market-row"><span>Commodities</span><span class="market-number">03</span></div>
-            <div class="market-row"><span>Currencies</span><span class="market-number">04</span></div>
-            <div class="market-row"><span>Digital assets</span><span class="market-number">05</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="principles section" aria-labelledby="principles-title">
-        <div class="container">
-          <div class="row section-head">
-            <div class="col-lg-3"><p class="eyebrow">04 / Principles</p></div>
-            <div class="col-lg-9"><h2 id="principles-title">The work is human, too.</h2><p class="section-lead" style="color:#c1cbc1">Good professional relationships depend on more than information. They depend on how clearly it is shared, and how carefully it is understood.</p></div>
-          </div>
-          <div class="principle-row"><span class="principle-no">01</span><h3>Explain the why</h3><p>Make the reasoning behind a market discussion understandable, not just the conclusion.</p></div>
-          <div class="principle-row"><span class="principle-no">02</span><h3>Meet people where they are</h3><p>Recognize different levels of market experience and different individual circumstances.</p></div>
-          <div class="principle-row"><span class="principle-no">03</span><h3>Build with consistency</h3><p>Trust, communication, respect and continuity give professional relationships their foundation.</p></div>
-        </div>
-      </section>
-
-      <section class="container section" id="profile" aria-labelledby="profile-title">
-        <div class="row section-head">
-          <div class="col-lg-3"><p class="eyebrow">05 / Profile notes</p></div>
-          <div class="col-lg-9"><h2 id="profile-title">Experience, in outline.</h2><p class="section-lead">A concise snapshot of the experience, academic background and working context described in Mike’s supplied profile.</p></div>
-        </div>
-        <div class="profile-panel">
-          <div class="row g-5">
-            <div class="col-lg-6">
-              <div class="profile-group">
-                <h3>Professional practice</h3>
-                <div class="profile-line"><span>Markets involvement</span><span>15+ years</span></div>
-                <div class="profile-line"><span>Private client network</span><span>300+ clients</span></div>
-                <div class="profile-line"><span>International reach</span><span>15+ countries</span></div>
-                <div class="profile-line"><span>Analyses and setups studied</span><span>3,000+</span></div>
-                <div class="profile-line"><span>Professional base</span><span>London, UK</span></div>
-              </div>
-              <div class="profile-group">
-                <h3>Research interests</h3>
-                <div class="profile-line"><span>Trading focus</span><span>Active, short-term analysis</span></div>
-                <div class="profile-line"><span>Additional areas</span><span>Strategy · Business · Research</span></div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="profile-group">
-                <h3>Academic background*</h3>
-                <div class="profile-line"><span>University of Cambridge</span><span>PhD, as described</span></div>
-                <div class="profile-line"><span>London Business School</span><span>Two-year advanced program</span></div>
-                <div class="profile-line"><span>Study areas</span><span>Finance · Economics · Business</span></div>
-              </div>
-              <div class="profile-group">
-                <h3>Outlook</h3>
-                <div class="profile-line"><span>Based in</span><span>London</span></div>
-                <div class="profile-line"><span>Perspective</span><span>International</span></div>
-                <div class="profile-line"><span>Ongoing focus</span><span>Research &amp; development</span></div>
-              </div>
-            </div>
-          </div>
-          <p class="claim-note mb-0">* Credentials and all experience, client-network and analysis figures on this page are claims from the supplied profile; they have not been independently verified. This page is informational and does not provide individualized financial advice.</p>
-        </div>
-      </section>
-
-      <section class="closing container" aria-labelledby="closing-title">
-        <p class="eyebrow">06 / Looking ahead</p>
-        <h2 id="closing-title">Curiosity keeps the perspective current.</h2>
-        <p>Mike continues to follow financial technology, global economics, monetary policy and new analytical approaches—bringing a learner’s mindset to a field in constant motion.</p>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
-        <span>© <span id="year">2026</span> Mike Clyne</span>
-        <span>London · International markets</span>
-        <a href="#top" class="text-decoration-none">Back to top ↑</a>
+  <div class="cookie" id="cookieBar" hidden>
+    <div class="container d-lg-flex justify-content-between align-items-end gap-4">
+      <div>
+        <p class="kicker">Cookies</p>
+        <p class="small mb-0 mt-2">This site stores an essential preference so that a cookie choice can be remembered. Optional analytics are off unless you allow them.</p>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+      <div class="d-flex gap-2 mt-3 mt-lg-0">
+        <button class="btn btn-ghost" type="button" id="cookieEssential">Essential only</button>
+        <button class="btn btn-ghost" type="button" id="cookieAll">Allow analytics</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const nav = document.getElementById("siteNav");
+      function show(id) {
+        document.querySelectorAll("[data-page]").forEach(function (p) {
+          p.classList.toggle("is-on", p.getAttribute("data-page") === id);
+        });
+        window.scrollTo(0, 0);
+        document.querySelectorAll("[data-nav]").forEach(function (a) {
+          a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+        });
+        const collapse = document.getElementById("navMain");
+        if (collapse && collapse.classList.contains("show") && window.bootstrap) {
+          window.bootstrap.Collapse.getOrCreateInstance(collapse).hide();
+        }
+      }
+      function route() {
+        const id = (location.hash || "#home").replace("#", "") || "home";
+        const exists = document.querySelector('[data-page="' + id + '"]');
+        show(exists ? id : "home");
+      }
+      window.addEventListener("hashchange", route);
+      route();
+      window.addEventListener("scroll", function () {
+        nav.classList.toggle("solid", window.scrollY > 20);
+        if (reduce) return;
+        document.querySelectorAll("[data-parallax]").forEach(function (el) {
+          const speed = parseFloat(el.getAttribute("data-parallax") || "0.2");
+          const rect = el.getBoundingClientRect();
+          const y = (rect.top + rect.height / 2 - window.innerHeight / 2) * speed;
+          el.style.transform = "translate3d(0," + y + "px,0)";
+        });
+      }, { passive: true });
+      const form = document.getElementById("consultForm");
+      const success = document.getElementById("formSuccess");
+      const err = document.getElementById("formError");
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (form.companyWebsite && form.companyWebsite.value) { form.hidden = true; success.hidden = false; return; }
+          if (!form.checkValidity()) {
+            err.hidden = false;
+            err.textContent = "Please complete the required fields.";
+            return;
+          }
+          form.hidden = true;
+          success.hidden = false;
+        });
+      }
+      const bar = document.getElementById("cookieBar");
+      if (!localStorage.getItem("mc-cookie-consent")) bar.hidden = false;
+      function setConsent(analytics) {
+        localStorage.setItem("mc-cookie-consent", JSON.stringify({ essential: true, analytics: analytics }));
+        bar.hidden = true;
+      }
+      document.getElementById("cookieEssential").onclick = function () { setConsent(false); };
+      document.getElementById("cookieAll").onclick = function () { setConsent(true); };
+      document.getElementById("resetCookies").onclick = function () {
+        localStorage.removeItem("mc-cookie-consent");
+        location.hash = "#home";
+        location.reload();
+      };
+    })();
+  </script>
+</body>
 </html>
