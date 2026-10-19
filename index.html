@@ -622,6 +622,7 @@ footer p{margin-bottom:10px}
 
 // 7) Language switcher. Loads translation strings from the provided text content (EN, FI, DE, NL, FR)
 //    and applies them to the page. The hero video also switches.
+//    NEW: on the first visit the language is chosen automatically from the visitor's IP country.
 (function(){
   // Translation data derived from the supplied page copy documents.
   const TRANSLATIONS = {
@@ -1311,8 +1312,41 @@ footer p{margin-bottom:10px}
   }
 
   btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
-  var saved='en';try{saved=localStorage.getItem(KEY)||'en'}catch(e){}
-  setLang(saved,false);
+
+  // ---- Automatic language by visitor country (IP) ----
+  // Country -> language. Add or remove countries as you like.
+  var COUNTRY_LANG={FI:'fi',DE:'de',AT:'de',LI:'de',NL:'nl',FR:'fr',LU:'fr',MC:'fr'};
+
+  var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+
+  if(saved&&TRANSLATIONS[saved]){
+    // The visitor picked a language before: always respect it.
+    setLang(saved,false);
+  }else{
+    // Start in English immediately, then switch once the country is known.
+    setLang('en',false);
+    var done=false;
+    var applyGuess=function(code){
+      if(done||!code||!TRANSLATIONS[code])return;
+      done=true;
+      setLang(code,false); // false = not saved, so a later manual choice still wins
+    };
+    // 1) Detect the country from the visitor's IP
+    var ctrl=('AbortController' in window)?new AbortController():null;
+    if(ctrl)setTimeout(function(){ctrl.abort()},2500);
+    fetch('https://get.geojs.io/v1/ip/country.json',ctrl?{signal:ctrl.signal}:{})
+      .then(function(r){return r.json()})
+      .then(function(d){
+        var lang=COUNTRY_LANG[(d.country||'').toUpperCase()];
+        if(lang)applyGuess(lang);
+        else{done=true} // country known but not in the list: stay in English
+      })
+      .catch(function(){
+        // 2) Fallback: the browser's language
+        var nl=(navigator.language||'en').slice(0,2).toLowerCase();
+        applyGuess(nl);
+      });
+  }
 })();
 
 // 4) Parallax: elements with data-speed (and phones/photo) move relative to scroll. Off for reduced motion.
