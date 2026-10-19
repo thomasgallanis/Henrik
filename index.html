@@ -1313,38 +1313,59 @@ footer p{margin-bottom:10px}
 
   btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,true)})});
 
-  // ---- Automatic language by visitor country (IP) ----
-  // Country -> language. Add or remove countries as you like.
-  var COUNTRY_LANG={FI:'fi',DE:'de',AT:'de',LI:'de',NL:'nl',FR:'fr',LU:'fr',MC:'fr'};
+  // ---- Automatic language by visitor country (IP geolocation) ----
+  // The visitor's explicit language choice takes priority over automatic detection.
+  // Country -> language. Countries not listed below use English by default.
+  var COUNTRY_LANG={
+    FI:'fi',
+    DE:'de',AT:'de',LI:'de',
+    NL:'nl',
+    FR:'fr',LU:'fr',MC:'fr'
+  };
 
-  var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+  function getSavedLanguage(){
+    try {
+      var value=localStorage.getItem(KEY);
+      return value&&TRANSLATIONS[value]?value:null;
+    } catch(e) { return null; }
+  }
 
-  if(saved&&TRANSLATIONS[saved]){
-    // The visitor picked a language before: always respect it.
+  var saved=getSavedLanguage();
+  if(saved){
+    // Respect the language the visitor selected on an earlier visit.
     setLang(saved,false);
   }else{
-    // Start in English immediately, then switch once the country is known.
+    // Show English immediately while the IP geolocation lookup is running.
     setLang('en',false);
-    var done=false;
-    var applyGuess=function(code){
-      if(done||!code||!TRANSLATIONS[code])return;
-      done=true;
-      setLang(code,false); // false = not saved, so a later manual choice still wins
-    };
-    // 1) Detect the country from the visitor's IP
-    var ctrl=('AbortController' in window)?new AbortController():null;
-    if(ctrl)setTimeout(function(){ctrl.abort()},2500);
-    fetch('https://get.geojs.io/v1/ip/country.json',ctrl?{signal:ctrl.signal}:{})
-      .then(function(r){return r.json()})
-      .then(function(d){
-        var lang=COUNTRY_LANG[(d.country||'').toUpperCase()];
-        if(lang)applyGuess(lang);
-        else{done=true} // country known but not in the list: stay in English
+    var completed=false;
+    var controller=('AbortController' in window)?new AbortController():null;
+    var timeoutId=controller?setTimeout(function(){controller.abort()},3000):null;
+
+    fetch('https://ipapi.co/json/',controller?{signal:controller.signal}: {})
+      .then(function(response){
+        if(!response.ok)throw new Error('IP geolocation request failed');
+        return response.json();
+      })
+      .then(function(data){
+        if(timeoutId)clearTimeout(timeoutId);
+        completed=true;
+
+        // If the visitor chose a language while the request was in flight,
+        // do not overwrite that choice with the automatic guess.
+        var latestSaved=getSavedLanguage();
+        if(latestSaved){setLang(latestSaved,false);return;}
+
+        var country=(data.country_code||data.country||'').toUpperCase();
+        var language=COUNTRY_LANG[country]||'en';
+        setLang(language,false); // Automatic choices are not saved as manual preferences.
       })
       .catch(function(){
-        // 2) Fallback: the browser's language
-        var nl=(navigator.language||'en').slice(0,2).toLowerCase();
-        applyGuess(nl);
+        if(timeoutId)clearTimeout(timeoutId);
+        if(completed)return;
+        // Graceful fallback: keep the site in English if IP lookup is unavailable.
+        // Visitors can still select any supported language using the existing switcher.
+        var latestSaved=getSavedLanguage();
+        setLang(latestSaved||'en',false);
       });
   }
 })();
