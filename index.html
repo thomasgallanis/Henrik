@@ -306,12 +306,12 @@ footer p{margin-bottom:10px}
     </div>
     <ul class="mk-list"><li data-i18n="market_forex">Forex</li><li data-i18n="market_crypto">Cryptocurrency</li><li data-i18n="market_futures">Futures</li><li data-i18n="market_indices">Indices</li><li data-i18n="market_metals">Metals</li><li data-i18n="market_shares">Shares</li><li data-i18n="market_goods">Traded Goods</li></ul>
    </div>
-   <form class="card" id="form" novalidate>
+   <form class="card" id="form" action="https://formspree.io/f/xeaevnkl" method="POST" novalidate>
     <h2 data-i18n="form_title">OPEN YOUR FREE ACCOUNT</h2>
-    <label class="sr" for="fn" data-i18n="form_name_label">Your name</label><input id="fn" name="fn" placeholder="Your name" data-i18n-placeholder="form_name_ph" autocomplete="given-name" required>
-    <label class="sr" for="ln" data-i18n="form_last_label">Your last name</label><input id="ln" name="ln" placeholder="Your last name" data-i18n-placeholder="form_last_ph" autocomplete="family-name" required>
-    <label class="sr" for="em" data-i18n="form_email_label">Email</label><input id="em" name="em" type="email" placeholder="Email" data-i18n-placeholder="form_email_ph" autocomplete="email" required>
-    <label class="sr" for="phn" data-i18n="form_phone_label">Phone</label><input id="phn" name="ph" type="tel" placeholder="Phone" data-i18n-placeholder="form_phone_ph" autocomplete="tel" required>
+    <label class="sr" for="fn" data-i18n="form_name_label">Your name</label><input id="fn" name="first_name" placeholder="Your name" data-i18n-placeholder="form_name_ph" autocomplete="given-name" required>
+    <label class="sr" for="ln" data-i18n="form_last_label">Your last name</label><input id="ln" name="last_name" placeholder="Your last name" data-i18n-placeholder="form_last_ph" autocomplete="family-name" required>
+    <label class="sr" for="em" data-i18n="form_email_label">Email</label><input id="em" name="email" type="email" placeholder="Email" data-i18n-placeholder="form_email_ph" autocomplete="email" required>
+    <label class="sr" for="phn" data-i18n="form_phone_label">Phone</label><input id="phn" name="phone" type="tel" placeholder="Phone" data-i18n-placeholder="form_phone_ph" autocomplete="tel" required>
     <button class="btn" type="submit" data-i18n="form_submit">Start Trading Now</button>
     <div id="msg" role="status"></div>
     <small data-i18n="form_disclaimer">By registering, you agree to our Terms of Use and acknowledge our Privacy Policy. Your personal information may be shared with our trusted third-party trading partners as detailed in our privacy policy. Leveraged products such as CFDs and futures carry a high risk of losing money.</small>
@@ -541,19 +541,48 @@ footer p{margin-bottom:10px}
   });
 })();
 
-// 3) Form: browser-side validation only. Set ENDPOINT to your own backend/CRM URL before launch.
+// 3) Formspree AJAX integration. Keeps the custom validation and translated messages.
 (function(){
-  var ENDPOINT='',f=document.getElementById('form'),msg=document.getElementById('msg');
-  function say(t,ok){msg.style.color=ok?'#2e7d32':'#c62828';msg.textContent=t}
+  var ENDPOINT='https://formspree.io/f/xeaevnkl';
+  var f=document.getElementById('form'),msg=document.getElementById('msg');
+  var firstName=document.getElementById('fn'),lastName=document.getElementById('ln');
+  var email=document.getElementById('em'),phone=document.getElementById('phn');
+  var submitBtn=f.querySelector('button[type="submit"]');
+  function say(text,ok){msg.style.color=ok?'#2e7d32':'#c62828';msg.textContent=text}
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var t = window.__translations && window.__translations[document.documentElement.lang] ? window.__translations[document.documentElement.lang] : null;
-    if(!f.fn.value.trim()||!f.ln.value.trim()||!/^\S+@\S+\.\S+$/.test(f.em.value))return say(t && t.form_error_name ? t.form_error_name : 'Please fill in your name, last name and a valid email.');
-    if(f.ph.value.replace(/\D/g,'').length<7)return say(t && t.form_error_phone ? t.form_error_phone : 'Please enter a valid phone number.');
-    if(!ENDPOINT)return say(t && t.form_demo ? t.form_demo : 'Demo mode: set ENDPOINT in the script to send submissions.',true);
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first:f.fn.value,last:f.ln.value,email:f.em.value,phone:f.ph.value})})
-      .then(function(r){if(!r.ok)throw 0;say(t && t.form_success ? t.form_success : 'Thank you. We will contact you shortly.',true);f.reset()})
-      .catch(function(){say(t && t.form_error_submit ? t.form_error_submit : 'Failed to submit the form. Please contact the site administrator.')});
+    var t=window.__translations && window.__translations[document.documentElement.lang] ? window.__translations[document.documentElement.lang] : null;
+    if(!firstName.value.trim()||!lastName.value.trim()||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+      return say(t && t.form_error_name ? t.form_error_name : 'Please fill in your name, last name and a valid email.');
+    }
+    if(phone.value.replace(/\D/g,'').length<7){
+      return say(t && t.form_error_phone ? t.form_error_phone : 'Please enter a valid phone number.');
+    }
+    submitBtn.disabled=true;
+    say('');
+    fetch(ENDPOINT,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        first_name:firstName.value.trim(),
+        last_name:lastName.value.trim(),
+        email:email.value.trim(),
+        _replyto:email.value.trim(),
+        phone:phone.value.trim(),
+        _subject:'New Alpha AI website registration'
+      })
+    })
+    .then(function(response){
+      return response.json().catch(function(){return {};}).then(function(data){
+        if(!response.ok)throw new Error(data.errors && data.errors.length ? data.errors.map(function(err){return err.message;}).join(' ') : 'Form submission failed.');
+        say(t && t.form_success ? t.form_success : 'Thank you. We will contact you shortly.',true);
+        f.reset();
+      });
+    })
+    .catch(function(){
+      say(t && t.form_error_submit ? t.form_error_submit : 'Failed to submit the form. Please contact the site administrator.');
+    })
+    .then(function(){submitBtn.disabled=false;},function(){submitBtn.disabled=false;});
   });
 })();
 
